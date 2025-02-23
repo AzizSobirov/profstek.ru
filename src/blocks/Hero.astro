@@ -1,0 +1,153 @@
+---
+import { Section, P, BgImg, Image, Icon, Button } from "ui";
+---
+
+<!-- Hero -->
+<Section name="hero">
+  <BgImg src="hero/1.png" />
+
+  <div class="hero__content">
+    <div class="hero__content-title">
+      Стеклянные перегородки для офисных и торговых помещений
+    </div>
+    <div class="hero__content-price">Цена от 2490₽ за м2!</div>
+    <P>
+      Современные решения компании ProfStek в области зонирования помещений
+      включают стильные и функциональные офисные и торговые перегородки. Они
+      обеспечивают комфортное разграничение пространства, сочетая эстетику и
+      практичность.
+    </P>
+    <form class="hero__form">
+      <div class="hero__form-title">Закажите бесплатный расчет</div>
+      <div class="hero__form-group">
+        <input type="text" name="name" placeholder="Ваше имя *" required />
+        <input
+          type="text"
+          name="phone"
+          placeholder="Ваш номер телефона *"
+          required
+        />
+        <button type="submit" class="btn">
+          Заказать расчет
+          <svg
+            width="38"
+            height="9"
+            viewBox="0 0 38 9"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M37.3536 4.85355C37.5488 4.65829 37.5488 4.34171 37.3536 4.14645L34.1716 0.964466C33.9763 0.769204 33.6597 0.769204 33.4645 0.964466C33.2692 1.15973 33.2692 1.47631 33.4645 1.67157L36.2929 4.5L33.4645 7.32843C33.2692 7.52369 33.2692 7.84027 33.4645 8.03553C33.6597 8.2308 33.9763 8.2308 34.1716 8.03553L37.3536 4.85355ZM0.5 5H37V4H0.5V5Z"
+              fill="white"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="hero__form-privacy">
+        Отправляя форму вы соглашаетесь с <a href="#"
+          >Политикой конфиденциальности</a
+        >
+      </div>
+    </form>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .hero {
+    position: relative;
+    padding: rem(70) 0 !important;
+
+    &__content {
+      padding: rem(64) rem(90) rem(64) rem(70);
+      width: 100%;
+      max-width: rem(1300);
+      color: #fff;
+      backdrop-filter: blur(rem(50));
+      background: rgba(255, 255, 255, 0.22);
+      border: rem(1) solid #fff;
+      border-radius: rem(40);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(30);
+
+      &-title {
+        width: 100%;
+        max-width: rem(900);
+        font-weight: 700;
+        font-size: 40px;
+      }
+
+      &-price {
+        font-weight: 700;
+        font-size: 50px;
+        color: #00fff9;
+        line-height: 1;
+      }
+
+      .text-p {
+        width: 100%;
+        max-width: rem(1045);
+        font-size: rem(18);
+      }
+    }
+
+    &__form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(20);
+
+      &-title {
+        font-size: rem(40);
+        font-weight: 700;
+      }
+
+      &-group {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: rem(25);
+      }
+
+      &-privacy {
+        font-weight: 300;
+        font-size: rem(12);
+
+        a {
+          text-decoration: underline;
+        }
+      }
+
+      input {
+        padding: 0 rem(20);
+        height: rem(60);
+        flex-grow: 1;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.25);
+        border: rem(1) solid #fff;
+        border-radius: 9999px;
+
+        &::placeholder {
+          color: #fff;
+        }
+      }
+
+      button {
+        width: rem(265);
+        height: rem(60);
+        color: #fff;
+        background: var(--primary);
+        border-radius: 9999px;
+        gap: rem(20);
+
+        &:hover {
+          background: var(--secondary);
+        }
+      }
+    }
+  }
+</style>

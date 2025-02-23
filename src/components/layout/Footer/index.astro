@@ -1,0 +1,183 @@
+---
+import { Image, Icon, H3 } from "ui";
+---
+
+<footer class="footer">
+  <div class="container">
+    <a href="/" class="footer__logo">
+      <Image src="logo-y.svg" />
+    </a>
+
+    <ul class="menu">
+      <li class="menu-item active"><a href="/">Главная</a></li>
+      <li class="menu-item"><a href="/tariffs">Тарифы</a></li>
+      <li class="menu-item"><a href="/about">О нас</a></li>
+      <li class="menu-item"><a href="/discounts">Акции </a></li>
+      <li class="menu-item"><a href="/reviews">Отзывы</a></li>
+      <li class="menu-item"><a href="/contacts">Контакты</a></li>
+    </ul>
+
+    <div class="footer__contact">
+      <H3>+ 7 (921) 111-32-71</H3>
+
+      <ul class="footer__list">
+        <li class="footer__item">
+          <a
+            href="#"
+            class="footer__item-link"
+            target="_blank"
+            title="Telegram"
+          >
+            <Icon src="telegram.svg" />
+            <span>Telegram</span>
+          </a>
+        </li>
+        <li class="footer__item">
+          <a
+            href="#"
+            class="footer__item-link"
+            target="_blank"
+            title="WhatsApp"
+          >
+            <Icon src="whatsapp.svg" />
+            <span>WhatsApp</span>
+          </a>
+        </li>
+      </ul>
+
+      <a href="mailto:info@focus-school.ru" title="Mail">
+        info@focus-school.ru
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .footer {
+    padding: rem(50) 0;
+
+    @include media("xl") {
+      padding-bottom: rem(120);
+    }
+    @include media("sm") {
+      padding: rem(35) 0 rem(120);
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: rem(20);
+
+      @include media("lg") {
+        flex-direction: column;
+        gap: rem(30);
+      }
+    }
+
+    &__logo {
+      width: rem(115);
+      height: rem(175);
+
+      @include media("xl") {
+        width: rem(100);
+        height: auto;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: rem(30);
+
+      @include media("lg") {
+        display: none;
+      }
+
+      &-item {
+        & > a {
+          font-weight: 300;
+          transition: var(--transition-ease);
+        }
+
+        &.active a,
+        &:hover a {
+          color: var(--primary);
+          border-bottom: rem(1) dashed var(--primary);
+        }
+      }
+    }
+
+    &__contact {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(30);
+
+      .text-h3 {
+        font-size: rem(26);
+        white-space: nowrap;
+
+        @include media("xl") {
+          font-size: rem(20);
+        }
+      }
+
+      a {
+        transition: var(--transition-ease);
+
+        &:hover {
+          color: var(--primary);
+        }
+      }
+
+      @include media("lg") {
+        align-items: center;
+
+        ul {
+          flex-direction: row;
+          gap: rem(40);
+        }
+      }
+      @include media("xs") {
+        ul {
+          gap: rem(20);
+        }
+
+        li a {
+          gap: rem(10);
+        }
+      }
+    }
+
+    &__list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(20);
+    }
+
+    &__item {
+      width: 100%;
+
+      &-link {
+        font-weight: 300;
+        text-decoration: underline;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: rem(15);
+      }
+    }
+  }
+</style>

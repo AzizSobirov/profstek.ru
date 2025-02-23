@@ -1,0 +1,22 @@
+---
+import { Image } from "ui";
+
+interface Props {
+  class?: string;
+  src: string;
+  alt?: string;
+  loading?: "lazy" | "eager";
+}
+
+const {
+  class: classname,
+  src,
+  alt = "",
+  loading = "lazy",
+  ...rest
+} = Astro.props;
+---
+
+<div class="bg-img" class:list={classname} {...rest}>
+  <Image src={src} alt={alt} loading={loading} />
+</div>
