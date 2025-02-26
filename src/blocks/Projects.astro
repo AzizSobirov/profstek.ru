@@ -1,0 +1,93 @@
+---
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+import Project from "@/components/Project.astro";
+import { projects } from "@/store";
+
+interface Props {
+  title?: string;
+  desc?: string;
+  isMain?: boolean;
+}
+
+const { title = "Реализованные проекты", desc, isMain = false } = Astro.props;
+---
+
+<!-- Projects -->
+<Section name={isMain ? "projects is-main" : "projects"}>
+  <H2>{title}</H2>
+  {desc && <P>{desc}</P>}
+
+  <div class="projects__list">
+    {projects.map((project) => <Project project={project} />)}
+  </div>
+
+  <Button href="/portfolio">
+    Все проекты
+    <svg
+      width="37"
+      height="8"
+      viewBox="0 0 37 8"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M36.8536 4.35355C37.0488 4.15829 37.0488 3.84171 36.8536 3.64645L33.6716 0.464466C33.4763 0.269204 33.1597 0.269204 32.9645 0.464466C32.7692 0.659728 32.7692 0.976311 32.9645 1.17157L35.7929 4L32.9645 6.82843C32.7692 7.02369 32.7692 7.34027 32.9645 7.53553C33.1597 7.7308 33.4763 7.7308 33.6716 7.53553L36.8536 4.35355ZM0 4.5H36.5V3.5H0V4.5Z"
+        fill="white"></path>
+    </svg>
+  </Button>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .projects {
+    position: relative;
+
+    .text-h2 + .text-p {
+      margin-bottom: rem(50);
+
+      @include media("3xl") {
+        margin-bottom: rem(30);
+      }
+
+      @include media("sm") {
+        margin-bottom: rem(20);
+      }
+    }
+
+    &__list {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: rem(40) rem(20);
+    }
+
+    &__item {
+    }
+
+    &__list + .btn {
+      margin-left: auto;
+    }
+  }
+
+  .projects.is-main {
+    .projects__list {
+      grid-template-rows: repeat(2, 1fr);
+      gap: rem(20);
+
+      @include media("lg") {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .projects__item {
+      @include media("1025px", min-width) {
+        min-height: rem(250);
+      }
+
+      &:first-child {
+        grid-row-start: span 2;
+      }
+    }
+  }
+</style>

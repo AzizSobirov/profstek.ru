@@ -1,11 +1,25 @@
 ---
 import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+import { steps } from "@/store";
 ---
 
 <!-- Steps -->
 <Section name="steps">
   <H2>Этапы работы с нами</H2>
-  <div class="steps__list"></div>
+
+  <div class="steps__list">
+    {
+      steps.map((step) => (
+        <div class="steps__item">
+          <div class="steps__item-icon" />
+          <div class="steps__item-content group">
+            <H3>{step.name}</H3>
+            <P>{step.desc}</P>
+          </div>
+        </div>
+      ))
+    }
+  </div>
 </Section>
 
 <style lang="scss" is:global>
@@ -13,5 +27,130 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
 
   .steps {
     position: relative;
+
+    &__list {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: rem(50) rem(20);
+
+      @include media("xl") {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include media("sm") {
+        grid-template-columns: 1fr;
+        gap: rem(20);
+      }
+    }
+
+    &__item {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: rem(30);
+
+      @include media("3xl") {
+        gap: rem(20);
+      }
+      @include media("xs") {
+        gap: rem(15);
+      }
+
+      &:nth-child(1) .steps__item-icon::before {
+        width: rem(8);
+        height: rem(8);
+        background-image: url('data:image/svg+xml,<svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="4" cy="4" r="4" fill="%2300C7C2" /></svg>');
+      }
+
+      &:nth-child(2) .steps__item-icon::before {
+        width: rem(22);
+        height: rem(8);
+        background-image: url('data:image/svg+xml,<svg width="22" height="8" viewBox="0 0 22 8" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="4" r="4" fill="%2300C7C2" /><circle cx="4" cy="4" r="4" fill="%2300C7C2" /></svg>');
+      }
+
+      &:nth-child(3) .steps__item-icon::before {
+        width: rem(22);
+        height: rem(20);
+        background-image: url('data:image/svg+xml,<svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="4" r="4" fill="%2300C7C2" /><circle cx="11" cy="15" r="4" fill="%2300C7C2" /><circle cx="4" cy="4" r="4" fill="%2300C7C2" /></svg>');
+      }
+
+      &:nth-child(4) .steps__item-icon::before {
+        width: rem(22);
+        height: rem(22);
+        background-image: url('data:image/svg+xml,<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="4" r="4" fill="%2300C7C2" /><circle cx="4" cy="4" r="4" fill="%2300C7C2" /><circle cx="18" cy="18" r="4" fill="%2300C7C2" /><circle cx="4" cy="18" r="4" fill="%2300C7C2" /></svg>');
+      }
+
+      &:nth-child(5) .steps__item-icon::before {
+        width: rem(22);
+        height: rem(36);
+        background-image: url('data:image/svg+xml,<svg width="22" height="36" viewBox="0 0 22 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="4" r="4" fill="%2300C7C2" /><circle cx="4" cy="4" r="4" fill="%2300C7C2" /><circle cx="11" cy="18" r="4" fill="%2300C7C2" /><circle cx="18" cy="32" r="4" fill="%2300C7C2" /><circle cx="4" cy="32" r="4" fill="%2300C7C2" /></svg>');
+      }
+
+      &:nth-child(6) .steps__item-icon::before {
+        width: rem(22);
+        height: rem(36);
+        background-image: url('data:image/svg+xml,<svg width="22" height="36" viewBox="0 0 22 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="4" r="4" fill="%2300C7C2" /><circle cx="4" cy="4" r="4" fill="%2300C7C2" /><circle cx="18" cy="18" r="4" fill="%2300C7C2" /><circle cx="4" cy="18" r="4" fill="%2300C7C2" /><circle cx="18" cy="32" r="4" fill="%2300C7C2" /><circle cx="4" cy="32" r="4" fill="%2300C7C2" /></svg>');
+      }
+
+      &:nth-child(7) .steps__item-icon::before {
+        width: rem(36);
+        height: rem(36);
+        background-image: url('data:image/svg+xml,<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="25" cy="4" r="4" fill="%2300C7C2" /><circle cx="11" cy="4" r="4" fill="%2300C7C2" /><circle cx="18" cy="18" r="4" fill="%2300C7C2" /><circle cx="32" cy="18" r="4" fill="%2300C7C2" /><circle cx="4" cy="18" r="4" fill="%2300C7C2" /><circle cx="25" cy="32" r="4" fill="%2300C7C2" /><circle cx="11" cy="32" r="4" fill="%2300C7C2" /></svg>');
+      }
+
+      &:nth-child(8) .steps__item-icon::before {
+        width: rem(22);
+        height: rem(50);
+        background-image: url('data:image/svg+xml,<svg width="22" height="50" viewBox="0 0 22 50" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="4" r="4" fill="%2300C7C2" /><circle cx="4" cy="4" r="4" fill="%2300C7C2" /><circle cx="18" cy="18" r="4" fill="%2300C7C2" /><circle cx="4" cy="18" r="4" fill="%2300C7C2" /><circle cx="18" cy="32" r="4" fill="%2300C7C2" /><circle cx="4" cy="32" r="4" fill="%2300C7C2" /><circle cx="18" cy="46" r="4" fill="%2300C7C2" /><circle cx="4" cy="46" r="4" fill="%2300C7C2" /></svg>');
+      }
+
+      &-icon {
+        --size: #{rem(80)};
+        min-width: var(--size);
+        width: var(--size);
+        height: var(--size);
+        border-radius: 50%;
+        border: rem(2) solid var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include media("3xl") {
+          --size: #{rem(60)};
+
+          &::before {
+            transform: scale(0.65);
+          }
+        }
+        @include media("xs") {
+          --size: #{rem(45)};
+
+          &::before {
+            transform: scale(0.5);
+          }
+        }
+
+        &::before {
+          content: "";
+          display: block;
+          background-position: center;
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+      }
+
+      &-content {
+        gap: rem(15);
+
+        @include media("xs") {
+          gap: rem(10);
+        }
+      }
+
+      .text-h3 {
+        color: inherit;
+      }
+    }
   }
 </style>

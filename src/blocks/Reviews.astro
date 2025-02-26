@@ -1,0 +1,46 @@
+---
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+---
+
+<!-- Reviews -->
+<Section name="reviews">
+  <H2>Отзывы наших клиентов</H2>
+  <div class="reviews__content">
+    <div class="reviews__swiper swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"></div>
+      </div>
+    </div>
+    <div class="reviews__text">
+      <div class="reviews__text-yandex">
+        <Image src="yandex.png" />
+        <p>4.9/5</p>
+      </div>
+
+      <P>
+        Спасибо что оставляете отзывы на нас на площадках! Свой отзыв Вы так же
+        можете прислать в мессенджер после выполнения Вашего заказа.
+      </P>
+
+      <div class="reviews__text-socials">
+        <a href="#" class="icon">
+          <Image src="icons/vk.svg" />
+        </a>
+        <a href="#" class="icon">
+          <Image src="icons/whatsapp.svg" />
+        </a>
+        <a href="#" class="icon">
+          <Image src="icons/telegram.svg" />
+        </a>
+      </div>
+    </div>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .reviews {
+    position: relative;
+  }
+</style>
