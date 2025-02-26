@@ -15,7 +15,7 @@
   --content-padding: #{rem(20)};
 }
 
-@include media("2xl") {
+@include media("3xl") {
   :root {
     --content-width: #{rem(1280)};
   }

@@ -1,0 +1,95 @@
+---
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+---
+
+<!-- Advantages -->
+<Section name="advantages">
+  <H2>ProfStek — это про качество</H2>
+
+  <P>
+    Компания «ProfStek» занимается производством и монтажом всех основных систем
+    перегородок, применяющихся для эффективного зонирования офисного и торгового
+    пространства: цельностеклянные перегородки (бескаркасные перегородки из
+    закалённого стекла), классические алюминиевые перегородки, алюминиевые
+    перегородки эконом класса, мобильные перегородки (не крепятся к полу и
+    стенам), перегородки в стиле Лофт из стекла и алюминиевого каркаса.
+  </P>
+
+  <div class="advantages__list">
+    <div class="advantages__list-item">
+      <Icon src="best-price.png" />
+      <P>Стоимость услуг «под ключ» одна из самых низких в Москве.</P>
+    </div>
+    <div class="advantages__list-item">
+      <Icon src="customer-support.png" />
+      <P>Консультация 0₽.</P>
+    </div>
+    <div class="advantages__list-item">
+      <Icon src="rescale.png" />
+      <P>Выезд на замер вашего объекта 0₽</P>
+    </div>
+    <div class="advantages__list-item">
+      <Icon src="installation.png" />
+      <P>Установка за 5 дней</P>
+    </div>
+    <div class="advantages__list-item">
+      <Icon src="construction-worker.png" />
+      <P>Демонтаж старых перегородок 0₽</P>
+    </div>
+    <div class="advantages__list-item">
+      <Icon src="express-delivery.png" />
+      <P>Доставка готовых конструкций 0₽</P>
+    </div>
+    <div class="advantages__list-item">
+      <Icon src="shield.png" />
+      <P>Гарантия 3 года.</P>
+    </div>
+    <div class="advantages__list-item">
+      <Icon src="factory.png" />
+      <P>У нас собственное производство в Москве всё в наличии</P>
+    </div>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .advantages {
+    position: relative;
+
+    .text-p {
+      max-width: rem(1000);
+    }
+
+    &__list {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: rem(40) rem(20);
+
+      @include media("xl") {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include media("sm") {
+        grid-template-columns: 1fr;
+        gap: rem(20);
+      }
+
+      &-item {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: rem(20);
+        --icon-size: #{rem(80)};
+
+        @include media("sm") {
+          --icon-size: #{rem(60)};
+        }
+        @include media("xs") {
+          --icon-size: #{rem(50)};
+        }
+      }
+    }
+  }
+</style>

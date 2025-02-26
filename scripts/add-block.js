@@ -5,6 +5,9 @@ import path from "path";
 const type = process.argv[2]; // "blocks" or "components"
 const name = process.argv[3]; // e.g., "hero" or "header"
 
+const fileName = name.toLowerCase();
+const fileNameCapital = fileName.charAt(0).toUpperCase() + fileName.slice(1);
+
 if (!type || !name) {
   console.error("Error: Please provide a type (blocks/components) and a name.");
   process.exit(1);
@@ -12,7 +15,7 @@ if (!type || !name) {
 
 // Define the base directory based on the type
 const baseDir = path.join(process.cwd(), "src", type); // Use the type directly
-const filePath = path.join(baseDir, `${name}.astro`);
+const filePath = path.join(baseDir, `${fileNameCapital}.astro`);
 
 // Check if the file already exists
 if (fs.existsSync(filePath)) {
@@ -28,7 +31,7 @@ if (!fs.existsSync(baseDir)) {
 // Content templates for the files
 const templates = {
   astro: (fileName, fileNameCapital) => `---
-import { Section, Image, Icon, Button } from "ui";
+import { Section,H2,H3,P, Image, Icon, Button } from "ui";
 ---
 
 <!-- ${fileNameCapital} -->
@@ -45,8 +48,6 @@ import { Section, Image, Icon, Button } from "ui";
 };
 
 // Generate the file content
-const fileName = name.toLowerCase();
-const fileNameCapital = fileName.charAt(0).toUpperCase() + fileName.slice(1);
 const fileContent = templates.astro(fileName, fileNameCapital);
 
 // Write the file

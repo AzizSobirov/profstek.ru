@@ -1,0 +1,225 @@
+---
+import { Section, Card, Image, Icon, Button, H3, P } from "ui";
+import { catalog } from "@/store";
+---
+
+<!-- Catalog -->
+<Section name="catalog">
+  <div class="catalog__filter swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" role="button">Перегородки</div>
+      <div class="swiper-slide" role="button">Двери</div>
+      <div class="swiper-slide" role="button">Жалюзи</div>
+      <div class="swiper-slide" role="button">Профильные системы</div>
+      <div class="swiper-slide" role="button">Потолочные системы</div>
+    </div>
+  </div>
+
+  <div class="catalog__list swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        {
+          catalog.map((item, index) => (
+            <Card link="#">
+              <Fragment slot="header">
+                <Image src={`catalog/${index + 1}.png`} />
+                <div class="card__header-price">От 99 999 ₽</div>
+              </Fragment>
+
+              <H3>{item.name}</H3>
+              <P set:html={item.desc} />
+            </Card>
+          ))
+        }
+      </div>
+      <div class="swiper-slide">
+        {
+          catalog.slice(0, 2).map((item, index) => (
+            <Card link="#">
+              <Fragment slot="header">
+                <Image src={`catalog/${index + 1}.png`} />
+                <div class="card__header-price">От 99 999 ₽</div>
+              </Fragment>
+
+              <H3>{item.name}</H3>
+              <P set:html={item.desc} />
+            </Card>
+          ))
+        }
+      </div>
+      <div class="swiper-slide">
+        {
+          catalog.slice(0, 4).map((item, index) => (
+            <Card link="#">
+              <Fragment slot="header">
+                <Image src={`catalog/${index + 1}.png`} />
+                <div class="card__header-price">От 99 999 ₽</div>
+              </Fragment>
+
+              <H3>{item.name}</H3>
+              <P set:html={item.desc} />
+            </Card>
+          ))
+        }
+      </div>
+      <div class="swiper-slide">
+        {
+          catalog.slice(0, 1).map((item, index) => (
+            <Card link="#">
+              <Fragment slot="header">
+                <Image src={`catalog/${index + 1}.png`} />
+                <div class="card__header-price">От 99 999 ₽</div>
+              </Fragment>
+
+              <H3>{item.name}</H3>
+              <P set:html={item.desc} />
+            </Card>
+          ))
+        }
+      </div>
+      <div class="swiper-slide">
+        {
+          catalog.slice(0, 2).map((item, index) => (
+            <Card link="#">
+              <Fragment slot="header">
+                <Image src={`catalog/${index + 1}.png`} />
+                <div class="card__header-price">От 99 999 ₽</div>
+              </Fragment>
+
+              <H3>{item.name}</H3>
+              <P set:html={item.desc} />
+            </Card>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .catalog {
+    position: relative;
+
+    &__filter {
+      width: 100%;
+
+      @include media("xl") {
+        overflow: visible;
+      }
+
+      .swiper-slide {
+        height: rem(60);
+        font-weight: 700;
+        font-size: rem(22);
+        color: #616161;
+        background: #e4e4e4;
+        border-radius: rem(10);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: var(--transition-ease);
+
+        &-thumb-active,
+        &:hover {
+          color: #fff;
+          background: var(--primary);
+        }
+
+        @include media("3xl") {
+          font-size: rem(20);
+        }
+        @include media("lg") {
+          padding: rem(10) rem(25);
+          height: auto;
+          width: fit-content;
+          font-size: rem(20);
+        }
+        @include media("sm") {
+          font-size: rem(16);
+        }
+      }
+    }
+
+    &__list {
+      width: 100%;
+
+      .swiper-slide {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: rem(20);
+        opacity: 0 !important;
+
+        &.swiper-slide-active {
+          opacity: 1 !important;
+        }
+
+        @include media("lg") {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @include media("sm") {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .card {
+        &__header {
+          border-radius: rem(35);
+          overflow: hidden;
+
+          @include media("xl") {
+            border-radius: rem(25);
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: inherit;
+            transition: var(--transition-ease);
+          }
+
+          &-price {
+            position: absolute;
+            bottom: rem(16);
+            left: rem(16);
+            padding: rem(6) rem(26);
+            color: #fff;
+            font-size: rem(26);
+            font-weight: 700;
+            background: var(--primary);
+            border-radius: rem(15);
+
+            @include media("xl") {
+              padding: rem(5) rem(20);
+              font-size: rem(20);
+              border-radius: rem(10);
+            }
+          }
+        }
+
+        &:hover {
+          .card__header img {
+            transform: scale(1.075);
+          }
+        }
+
+        &__content {
+          padding: rem(40) 0;
+          gap: rem(30);
+
+          @include media("xl") {
+            padding: rem(20) 0;
+            gap: rem(15);
+          }
+          @include media("sm") {
+            padding-bottom: rem(10);
+          }
+        }
+      }
+    }
+  }
+</style>

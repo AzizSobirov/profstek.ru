@@ -1,0 +1,67 @@
+---
+import { Section, H2, H3, P, BgImg, Image, Icon, Button } from "ui";
+import TheForm from "@/components/TheForm.astro";
+---
+
+<!-- Application -->
+<Section name="application">
+  <Fragment slot="header">
+    <BgImg src="form-bg.png" attachment="fixed" />
+  </Fragment>
+
+  <div class="application__content">
+    <TheForm />
+    <div class="application__img">
+      <Image src="form-img.png" />
+    </div>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .application {
+    position: relative;
+
+    &__content {
+      padding: rem(80) 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: rem(20);
+
+      @include media("3xl") {
+        padding: rem(50) 0;
+      }
+      @include media("xl") {
+        .form {
+          max-width: rem(580);
+        }
+      }
+      @include media("lg") {
+        padding: 0;
+
+        .form {
+          max-width: 100%;
+        }
+      }
+    }
+
+    &__img {
+      @include media("lg") {
+        display: none;
+      }
+
+      img {
+        transform: scale(1.6);
+
+        @include media("3xl") {
+          min-width: rem(380);
+          width: rem(380);
+          transform: scale(1.5);
+        }
+      }
+    }
+  }
+</style>

@@ -6,6 +6,7 @@ interface Props {
   src: string;
   alt?: string;
   loading?: "lazy" | "eager";
+  attachment?: "fixed";
 }
 
 const {
@@ -13,10 +14,22 @@ const {
   src,
   alt = "",
   loading = "lazy",
+  attachment,
   ...rest
 } = Astro.props;
 ---
 
 <div class="bg-img" class:list={classname} {...rest}>
-  <Image src={src} alt={alt} loading={loading} />
+  {
+    attachment && attachment == "fixed" ? (
+      <div
+        class="bg-img__fixed"
+        style={{
+          backgroundImage: `url(/assets/img/${src})`,
+        }}
+      />
+    ) : (
+      <Image src={src} alt={alt} loading={loading} />
+    )
+  }
 </div>

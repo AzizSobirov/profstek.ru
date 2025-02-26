@@ -1,0 +1,237 @@
+---
+import { Section, H2, H3, P, BgImg, Image, Icon, Button } from "ui";
+---
+
+<!-- Discounts -->
+<Section name="discounts">
+  <H2>Скидки и акции</H2>
+
+  <div class="discounts__list swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <BgImg src="discounts/1.png" />
+
+        <div class="text-badge">ВЕСЬ ЯНВАРЬ</div>
+        <div class="text-title">Эконом перегородки Smart</div>
+        <p class="text-p">Скидка на перегородки Smart 15%</p>
+      </div>
+
+      <div class="swiper-slide">
+        <BgImg src="discounts/2.png" />
+
+        <div class="text-badge">ВЕСЬ ЯНВАРЬ</div>
+        <div class="text-title">Эконом перегородки Smart</div>
+        <p class="text-p">Скидка на перегородки Smart 15%</p>
+      </div>
+      <div class="swiper-slide">
+        <BgImg src="discounts/1.png" />
+
+        <div class="text-badge">ВЕСЬ ЯНВАРЬ</div>
+        <div class="text-title">Эконом перегородки Smart</div>
+        <p class="text-p">Скидка на перегородки Smart 15%</p>
+      </div>
+
+      <div class="swiper-slide">
+        <BgImg src="discounts/2.png" />
+
+        <div class="text-badge">ВЕСЬ ЯНВАРЬ</div>
+        <div class="text-title">Эконом перегородки Smart</div>
+        <p class="text-p">Скидка на перегородки Smart 15%</p>
+      </div>
+      <div class="swiper-slide">
+        <BgImg src="discounts/1.png" />
+
+        <div class="text-badge">ВЕСЬ ЯНВАРЬ</div>
+        <div class="text-title">Эконом перегородки Smart</div>
+        <p class="text-p">Скидка на перегородки Smart 15%</p>
+      </div>
+
+      <div class="swiper-slide">
+        <BgImg src="discounts/2.png" />
+
+        <div class="text-badge">ВЕСЬ ЯНВАРЬ</div>
+        <div class="text-title">Эконом перегородки Smart</div>
+        <p class="text-p">Скидка на перегородки Smart 15%</p>
+      </div>
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .discounts {
+    position: relative;
+
+    &__list {
+      position: relative;
+      width: 100%;
+      height: rem(450);
+      overflow: visible;
+      user-select: none;
+
+      @include media("3xl") {
+        height: rem(400);
+      }
+      @include media("xl") {
+        height: rem(360);
+      }
+      @include media("lg") {
+        height: rem(340);
+      }
+      @include media("sm") {
+        height: rem(280);
+      }
+      @include media("xs") {
+        height: rem(220);
+      }
+
+      .swiper-slide {
+        position: relative;
+        padding: rem(55) rem(32);
+        color: #fff;
+        border-radius: rem(20);
+        transition: opacity var(--transition-ease);
+        opacity: 0.5;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        gap: rem(15);
+
+        @include media("3xl") {
+          padding: rem(40) rem(32);
+        }
+        @include media("xl") {
+          width: rem(560);
+        }
+        @include media("lg") {
+          width: rem(520);
+        }
+        @include media("sm") {
+          padding: rem(25) rem(20);
+          width: rem(420);
+          gap: rem(10);
+        }
+        @include media("xs") {
+          width: rem(320);
+        }
+        @include media("375px") {
+          width: rem(300);
+        }
+        @include media("xxs") {
+          width: rem(280);
+        }
+
+        .bg-img {
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+              to bottom,
+              transparent,
+              rgba(0, 0, 0, 0.8)
+            );
+          }
+        }
+
+        .text-badge {
+          position: absolute;
+          top: rem(14);
+          right: rem(14);
+          padding: rem(8) rem(20);
+          color: #262626;
+          font-size: rem(16);
+          font-weight: 300;
+          line-height: 1;
+          background: #fff;
+          border-radius: 9999px;
+
+          @include media("xs") {
+            top: rem(10);
+            right: rem(10);
+            padding: rem(6) rem(12);
+            font-size: rem(12);
+          }
+        }
+
+        .text-title {
+          font-size: rem(44);
+          line-height: 1.2;
+
+          @include media("3xl") {
+            font-size: rem(36);
+          }
+          @include media("sm") {
+            font-size: rem(32);
+          }
+          @include media("xs") {
+            font-size: rem(24);
+          }
+        }
+
+        .text-p {
+          @include media("xs") {
+            font-size: rem(14);
+          }
+        }
+
+        &-active,
+        &-next {
+          opacity: 1;
+        }
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        margin: 0 !important;
+        transform: translateY(-50%);
+        width: rem(65);
+        height: rem(65);
+        color: #262626;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        --swiper-navigation-sides-offset: #{rem(-40)};
+
+        @include media("2xl") {
+          --swiper-navigation-sides-offset: #{rem(20)};
+        }
+        @include media("xl") {
+          display: none !important;
+        }
+
+        &::after {
+          font-size: rem(24);
+        }
+
+        &.swiper-button-disabled {
+          opacity: 0;
+          pointer-events: none;
+        }
+      }
+
+      .swiper-button-prev {
+        &::after {
+          margin-right: rem(2.5);
+        }
+      }
+
+      .swiper-button-next {
+        &::after {
+          margin-left: rem(2.5);
+        }
+      }
+    }
+  }
+</style>

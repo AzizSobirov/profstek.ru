@@ -19,6 +19,7 @@
   color: var(--primary);
   font-size: rem(44);
   font-weight: 700;
+  line-height: 1.2;
 
   @include media(lg) {
     font-size: rem(32);

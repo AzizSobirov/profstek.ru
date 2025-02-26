@@ -45,19 +45,24 @@ const Tag = href ? "a" : "button";
     justify-content: center;
     transition: var(--transition-ease);
 
-    // &-primary {
-    //   padding: 0 rem(44);
-    //   height: rem(48);
-    //   color: #fff;
-    //   background: var(--primary);
-    //   border: rem(1) solid var(--primary);
-    //   border-radius: 9999px;
-    //   box-shadow: 0 0 rem(14) 0 rgba(0, 0, 0, 0.15);
+    &-primary {
+      width: rem(195);
+      height: rem(45);
+      color: #fff;
+      font-size: rem(18);
+      font-weight: 300;
+      background: var(--primary);
+      border-radius: 9999px;
 
-    //   &:hover {
-    //     opacity: 0.8;
-    //   }
-    // }
+      &:hover {
+        background: var(--secondary);
+      }
+
+      @include media("sm") {
+        height: rem(42);
+        font-size: rem(16);
+      }
+    }
 
     // &-secondary {
     //   padding: 0 rem(44);

@@ -1,0 +1,138 @@
+---
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+---
+
+<!-- Services -->
+<Section name="services">
+  <H2>Наши услуги</H2>
+  <div class="services__list">
+    <div class="services__item">
+      <div class="services__item-img">
+        <Image src="services/1.png" />
+      </div>
+      <H3>Монтаж перегородок</H3>
+      <P>Смонтируем перегородки согласно проекту</P>
+      <div class="text-price">От 99 999 ₽</div>
+      <Button href="/service">Подробнее</Button>
+    </div>
+    <div class="services__item">
+      <div class="services__item-img">
+        <Image src="services/2.png" />
+      </div>
+      <H3>Демонтаж перегородок</H3>
+      <P>Смонтируем перегородки согласно проекту</P>
+      <div class="text-price">От 99 999 ₽</div>
+      <Button href="/service">Подробнее</Button>
+    </div>
+    <div class="services__item">
+      <div class="services__item-img">
+        <Image src="services/3.png" />
+      </div>
+      <H3>Тонирование перегородок</H3>
+      <P>Смонтируем перегородки согласно проекту</P>
+      <div class="text-price">От 99 999 ₽</div>
+      <Button href="/service">Подробнее</Button>
+    </div>
+    <div class="services__item">
+      <div class="services__item-img">
+        <Image src="services/4.png" />
+      </div>
+      <H3>Покраска профиля по RAL</H3>
+      <P>Смонтируем перегородки согласно проекту</P>
+      <div class="text-price">От 99 999 ₽</div>
+      <Button href="/service">Подробнее</Button>
+    </div>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .services {
+    position: relative;
+
+    &__list {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: rem(40);
+
+      @include media("xl") {
+        gap: rem(35) rem(25);
+      }
+      @include media("lg") {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include media("sm") {
+        gap: rem(20) rem(10);
+      }
+    }
+
+    &__item {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(20);
+
+      @include media("xs") {
+        gap: rem(10);
+      }
+
+      &-img {
+        width: rem(235);
+        height: rem(235);
+        border-radius: rem(20);
+
+        @include media("xl") {
+          width: rem(200);
+          height: rem(200);
+        }
+        @include media("lg") {
+          width: rem(250);
+          height: rem(250);
+        }
+        @include media("md") {
+          width: rem(200);
+          height: rem(200);
+        }
+        @include media("xs") {
+          width: 100%;
+          height: auto;
+          max-height: rem(200);
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: inherit;
+        }
+      }
+
+      .text-h3 {
+        color: inherit;
+      }
+
+      .text-price {
+        margin-top: auto;
+        color: var(--primary);
+        font-size: rem(26);
+        font-weight: 700;
+
+        @include media("sm") {
+          font-size: rem(24);
+        }
+        @include media("xs") {
+          font-size: rem(20);
+        }
+      }
+
+      .btn {
+        @include media("sm") {
+          width: 100%;
+        }
+      }
+    }
+  }
+</style>
