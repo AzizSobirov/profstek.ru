@@ -37,13 +37,13 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
       </P>
 
       <div class="reviews__text-socials">
-        <a href="#" class="icon">
+        <a href="#" class="icon" target="_blank">
           <Image src="icons/vk.svg" />
         </a>
-        <a href="#" class="icon">
+        <a href="#" class="icon" target="_blank">
           <Image src="icons/whatsapp.svg" />
         </a>
-        <a href="#" class="icon">
+        <a href="#" class="icon" target="_blank">
           <Image src="icons/telegram.svg" />
         </a>
       </div>
@@ -131,6 +131,7 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
       .swiper-button-prev {
         position: relative !important;
         top: 0 !important;
+        z-index: 1 !important;
         margin: 0 !important;
         width: rem(65);
         height: rem(65);

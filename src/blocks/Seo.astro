@@ -1,14 +1,74 @@
 ---
-import { Section,H2,H3,P, Image, Icon, Button } from "ui";
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
 ---
 
 <!-- Seo -->
-<Section name="seo"> .seo </Section>
+<Section name="seo">
+  <H2> Алюминиевые перегородки </H2>
+
+  <div class="seo__content">
+    <P
+      >Лучшие качества перегородочных элементов на основе алюминиевого каркаса –
+      прочность, устойчивость, долговечность, элегантная простота. Их можно
+      купить для офисных помещений, торговых площадок, обеспечивая
+      эргономичность рабочих зон. Конструкции оснащают дверьми, окнами,
+      витринами, другими элементами для удобства эксплуатации. Востребованы
+      алюминиевые перегородки со вставками из каленого стекла, которое хорошо
+      пропускает свет.
+    </P>
+    <P>
+      Лучшие качества перегородочных элементов на основе алюминиевого каркаса –
+      прочность, устойчивость, долговечность, элегантная простота. Их можно
+      купить для офисных помещений, торговых площадок, обеспечивая
+      эргономичность рабочих зон. Конструкции оснащают дверьми, окнами,
+      витринами, другими элементами для удобства эксплуатации. Востребованы
+      алюминиевые перегородки со вставками из каленого стекла, которое хорошо
+      пропускает свет.
+    </P>
+  </div>
+
+  <Button variant="outline">Подробнее</Button>
+</Section>
 
 <style lang="scss" is:global>
   @use "scss/helpers" as *;
 
   .seo {
     position: relative;
+
+    .container {
+      @include media("1025px", min-width) {
+        gap: rem(40);
+      }
+    }
+
+    &__content {
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      transition: var(--transition-bezier);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(20);
+    }
+
+    .btn {
+      width: rem(192);
+      height: rem(45);
+      color: var(--text-color);
+      font-weight: 300;
+      border-color: var(--text-color);
+
+      &:hover {
+        color: #fff;
+        background: var(--primary);
+        border-color: var(--primary);
+      }
+
+      @include media("xs") {
+        font-size: rem(16);
+      }
+    }
   }
 </style>

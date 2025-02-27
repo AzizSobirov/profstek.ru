@@ -4,7 +4,7 @@ import TheForm from "../../TheForm.astro";
 ---
 
 <div class="modal-overlay">
-  <div class="modal" data-template="form">
+  <div class="modal" data-template="callback">
     <div class="modal-form">
       <div class="btn-close" data-modal="close"></div>
       <TheForm />
@@ -15,55 +15,6 @@ import TheForm from "../../TheForm.astro";
     <div class="modal-form">
       <div class="btn-close" data-modal="close"></div>
       <TheForm success={true} />
-    </div>
-  </div>
-
-  <div class="modal" data-template="training-program">
-    <div class="modal-info">
-      <div class="btn-close" data-modal="close"></div>
-      <H4>Программа теоретической подготовки</H4>
-      <span>
-        Теоретический курс охватывает все темы, предусмотренные программой
-        подготовки водителей. Материалы обучения структурированы по модулям,
-        каждый из которых посвящён отдельному аспекту вождения – от изучения
-        правил дорожного движения до практики маневрирования в городских
-        условиях. Для максимального удобства мы разработали учебный портал, где
-        размещены все материалы и видеоуроки. Чтобы помочь нашим студентам
-        успешно сдать экзамены в МРЭО ГИБДД, мы предлагаем:
-
-        <ul>
-          <li>детальную проработку экзаменационных билетов;</li>
-          <li>анализ записей с площадки автодрома;</li>
-          <li>разбор последних изменений в законодательстве;</li>
-          <li>
-            проведение внутренних экзаменов или тестов после завершения каждого
-            модуля.
-          </li>
-        </ul>
-
-        И, конечно, никакие онлайн-уроки не заменят практических занятий. Наши
-        опытные инструкторы всегда готовы помочь вам приобрести уверенные навыки
-        вождения.
-      </span>
-    </div>
-  </div>
-
-  <div class="modal" data-template="practical-classes">
-    <div class="modal-info">
-      <div class="btn-close" data-modal="close"></div>
-      <H4>Практические занятия и их особенности</H4>
-      <span>
-        Практические занятия в автошколе "Focus" организованы максимально удобно
-        для студентов. Они проводятся как на специализированном автодроме,
-        который расположен всего в пяти минутах ходьбы, так и в реальных
-        городских условиях. Наши профессиональные инструкторы приезжают к
-        ученикам, обеспечивая индивидуальный подход к каждому студенту и полный
-        цикл обучения. <br />
-        Занятия на автодроме помогают отработать базовые навыки в безопасной и контролируемой
-        среде, а уроки в городе подготавливают к реальным ситуациям на дорогах. Такой
-        подход позволяет нашим ученикам уверенно чувствовать себя за рулем в любых
-        условиях.
-      </span>
     </div>
   </div>
 </div>
@@ -113,7 +64,7 @@ import TheForm from "../../TheForm.astro";
 
   .modal-form {
     position: relative;
-    padding: rem(50) rem(70);
+    padding: rem(50);
     min-height: rem(430);
     width: rem(810);
     color: #fff;
@@ -131,9 +82,12 @@ import TheForm from "../../TheForm.astro";
     @include media("sm") {
       padding: rem(30) rem(20);
       min-height: rem(250);
-      max-width: calc(100vw - 20px);
+      max-width: calc(100vw - 40px);
       border-radius: rem(20);
       gap: rem(20);
+    }
+    @include media("xs") {
+      max-width: calc(100vw - 25px);
     }
 
     &::after {
@@ -141,15 +95,21 @@ import TheForm from "../../TheForm.astro";
       position: absolute;
       bottom: 0;
       right: 0;
-      width: rem(296);
-      height: rem(340);
-      background: url('data:image/svg+xml,<svg width="284" height="324" viewBox="0 0 284 324" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M293.97 124.945C284.597 64.966 238.886 16.7875 178.471 3.33527C120.568 -9.54379 59.3374 15.6075 25.4448 66.146C-9.09299 117.696 -8.48171 181.889 27.3466 231.955C63.8881 283 79.0005 289.473 137.379 337.651C147.635 344.833 149.536 344.833 159.147 337.348C188.319 312.837 207.337 298.778 224.453 282.966L241.298 298.879L242.452 210.378L156.77 218.975L174.022 235.293C168.35 239.878 161.898 245.071 154.155 251.577C148.823 255.724 147.77 255.724 142.099 251.746C109.769 225.078 101.38 221.504 81.14 193.251C61.307 165.537 60.9335 130.002 80.0872 101.479C98.8673 73.4958 132.794 59.5716 164.853 66.7191C198.304 74.1701 223.638 100.839 228.834 134.014C229.513 138.296 230.091 142.611 229.955 146.96C229.683 163.784 224.895 179.192 214.978 192.947C214.367 193.79 213.756 194.633 213.178 195.442L254.338 190.958L253.625 251.679C258.482 245.677 263.508 239.036 268.941 231.483C286.805 206.602 295.498 178.787 295.974 148.343C296.178 140.453 295.159 132.699 293.936 124.945" fill="white" /></svg>')
-        center/contain no-repeat;
+      transform: translate(25%, 0%);
+      width: rem(420);
+      height: rem(420);
+      background: url("/assets/img/form-img.png") center/contain no-repeat;
       pointer-events: none;
 
       @include media("lg") {
-        width: rem(220);
-        height: rem(250);
+        transform: translate(10%, -7%);
+        width: rem(380);
+        height: rem(380);
+      }
+      @include media("md") {
+        transform: translate(10%, -20%);
+        width: rem(320);
+        height: rem(320);
       }
       @include media("sm") {
         display: none;
@@ -189,64 +149,23 @@ import TheForm from "../../TheForm.astro";
 
     form {
       margin-top: 0;
-    }
-  }
-
-  .modal-info {
-    position: relative;
-    padding: rem(60);
-    width: 100%;
-    max-width: rem(1140);
-    background: #fff;
-    border-radius: rem(40);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: rem(30);
-
-    @include media("xl") {
-      max-width: calc(100vw - 40px);
-    }
-    @include media("sm") {
-      padding: rem(30) rem(20);
-      max-width: calc(100vw - 20px);
-      border-radius: rem(20);
-      gap: rem(20);
-    }
-
-    .btn-close {
-      position: absolute;
-      top: rem(25);
-      right: rem(25);
-      z-index: 2;
-      width: rem(24);
-      height: rem(24);
-      background: url('data:image/svg+xml,<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L16.5 16.5" stroke="%2343B6CD" /><path d="M16.5 1L1 16.5" stroke="%2343B6CD" /></svg>')
-        center/contain no-repeat;
-      cursor: pointer;
+      max-width: rem(340);
 
       @include media("sm") {
-        top: -35px;
-        right: 10px;
-        background-image: url('data:image/svg+xml,<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L16.5 16.5" stroke="%23ffffff" /><path d="M16.5 1L1 16.5" stroke="%23ffffff" /></svg>');
+        max-width: 100%;
       }
-    }
 
-    .text-h4 {
-      font-family: var(--font-secondary);
-      text-transform: unset;
-    }
+      button {
+        color: var(--primary);
+        background: #fff;
 
-    span {
-      @include media("xs") {
-        font-size: rem(14);
+        &:hover {
+          opacity: 1;
+          color: #fff;
+          background: var(--secondary);
+          border-color: var(--secondary);
+        }
       }
-    }
-
-    ul {
-      margin: rem(5) 0;
-      padding-left: rem(24);
-      list-style-type: disc;
     }
   }
 </style>

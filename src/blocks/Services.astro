@@ -1,10 +1,19 @@
 ---
 import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+interface Props {
+  title: string;
+  desc?: string;
+  isMain?: boolean;
+}
+
+const { title, desc, isMain = false } = Astro.props;
 ---
 
 <!-- Services -->
-<Section name="services">
-  <H2>Наши услуги</H2>
+<Section name={isMain ? "services is-main" : "services"}>
+  <H2>{title}</H2>
+  {desc && <P>{desc}</P>}
+
   <div class="services__list">
     <div class="services__item">
       <div class="services__item-img">
@@ -50,6 +59,11 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
 
   .services {
     position: relative;
+
+    .container > .text-p {
+      margin-bottom: rem(20);
+      max-width: rem(1005);
+    }
 
     &__list {
       width: 100%;
@@ -131,6 +145,44 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
       .btn {
         @include media("sm") {
           width: 100%;
+        }
+      }
+    }
+  }
+
+  .services.is-main {
+    padding-top: rem(50);
+
+    @include media("sm") {
+      padding-top: rem(35);
+    }
+
+    .services__list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: rem(60) rem(20);
+
+      @include media("sm") {
+        grid-template-columns: 1fr;
+        gap: rem(40);
+      }
+    }
+
+    .services__item {
+      &-img {
+        width: 100%;
+        height: rem(380);
+
+        @include media("3xl") {
+          height: rem(360);
+        }
+        @include media("xl") {
+          height: rem(280);
+        }
+        @include media("lg") {
+          height: rem(220);
+        }
+        @include media("sm") {
+          height: auto;
         }
       }
     }

@@ -14,7 +14,7 @@ import "./index.scss";
         <ul class="menu">
           <li class="menu-item"><a href="/">Главная</a></li>
           <li class="menu-item"><a href="/services">Услуги</a></li>
-          <li class="menu-item"><a href="/about">Наши работы</a></li>
+          <li class="menu-item"><a href="/portfolio">Наши работы</a></li>
           <li class="menu-item"><a href="/contacts">Контакты</a></li>
         </ul>
       </nav>
@@ -99,117 +99,123 @@ import "./index.scss";
       </div>
     </div>
   </div>
-</header>
 
-<!-- <div class="mobile__menu">
-  <div class="mobile__menu-tabs">
-    <div
-      class="mobile__menu-tab"
-      id="tab"
-      data-toggle="menu"
-      role="button"
-      tabindex="0"
-      aria-label="Меню"
-    >
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+  <div class="mobile__menu">
+    <div class="mobile__menu-tabs">
+      <div
+        class="mobile__menu-tab"
+        id="tab"
+        data-toggle="menu"
+        role="button"
+        tabindex="0"
+        aria-label="Меню"
       >
-        <path
-          d="M0 1.79032C0 1.0777 0.577697 0.5 1.29032 0.5H7.74194C8.45456 0.5 9.03226 1.0777 9.03226 1.79032V8.24194C9.03226 8.95456 8.45456 9.53226 7.74194 9.53226H1.29032C0.577697 9.53226 0 8.95456 0 8.24194V1.79032Z"
-          fill="currentColor"></path>
-        <path
-          d="M10.9677 1.79032C10.9677 1.0777 11.5454 0.5 12.2581 0.5H18.7097C19.4223 0.5 20 1.0777 20 1.79032V8.24194C20 8.95456 19.4223 9.53226 18.7097 9.53226H12.2581C11.5454 9.53226 10.9677 8.95456 10.9677 8.24194V1.79032Z"
-          fill="currentColor"></path>
-        <path
-          d="M10.9677 12.1129C10.9677 11.4003 11.5454 10.8226 12.2581 10.8226H18.7097C19.4223 10.8226 20 11.4003 20 12.1129V18.5645C20 19.2771 19.4223 19.8548 18.7097 19.8548H12.2581C11.5454 19.8548 10.9677 19.2771 10.9677 18.5645V12.1129Z"
-          fill="currentColor"></path>
-        <path
-          d="M0 12.1129C0 11.4003 0.577697 10.8226 1.29032 10.8226H7.74194C8.45456 10.8226 9.03226 11.4003 9.03226 12.1129V18.5645C9.03226 19.2771 8.45456 19.8548 7.74194 19.8548H1.29032C0.577697 19.8548 0 19.2771 0 18.5645V12.1129Z"
-          fill="currentColor"></path>
-      </svg>
-      <span>Меню</span>
-    </div>
-    <a href="/tariffs" class="mobile__menu-tab" id="tab-link" title="Тарифы">
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g clip-path="url(#clip0_150_27221)">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M10.8352 1.66675C15.8989 1.66675 20.0036 5.77145 20.0036 10.8352C20.0036 15.8989 15.8989 20.0036 10.8352 20.0036C5.77145 20.0036 1.66675 15.8989 1.66675 10.8352C1.66675 5.77145 5.77145 1.66675 10.8352 1.66675ZM3.68839 12.4947C4.00924 13.8721 4.72101 15.1276 5.73818 16.1103C6.75535 17.093 8.03463 17.761 9.42232 18.0342C9.24537 15.6275 8.45413 14.1835 7.45477 13.3849C6.49759 12.6193 5.19934 12.3232 3.68839 12.4937V12.4947ZM14.2156 13.384C13.2162 14.1844 12.425 15.6275 12.248 18.0342C13.6358 17.761 14.9152 17.0928 15.9324 16.1099C16.9496 15.127 17.6613 13.8714 17.982 12.4937C16.471 12.3232 15.1728 12.6193 14.2156 13.3849V13.384ZM10.8352 3.50043C9.1262 3.50013 7.47076 4.0966 6.15471 5.18683C4.83866 6.27707 3.94461 7.79263 3.62696 9.47183L3.58753 9.6992L5.61375 9.29396C6.14736 9.18761 6.65437 8.90614 7.22098 8.52381L7.65831 8.21942C8.38904 7.70049 9.47183 7.1678 10.8352 7.1678C12.1077 7.1678 13.1355 7.63173 13.8608 8.11582L14.4494 8.52381C14.9445 8.85846 15.3955 9.11518 15.8576 9.24628L16.0566 9.29396L18.0828 9.6992C17.812 7.97165 16.9329 6.39768 15.604 5.2611C14.2751 4.12452 12.5838 3.5001 10.8352 3.50043Z"
+            d="M0 1.79032C0 1.0777 0.577697 0.5 1.29032 0.5H7.74194C8.45456 0.5 9.03226 1.0777 9.03226 1.79032V8.24194C9.03226 8.95456 8.45456 9.53226 7.74194 9.53226H1.29032C0.577697 9.53226 0 8.95456 0 8.24194V1.79032Z"
             fill="currentColor"></path>
-        </g>
-        <defs>
-          <clipPath id="clip0_150_27221">
-            <rect width="20" height="20" fill="currentColor"></rect>
-          </clipPath>
-        </defs>
-      </svg>
-      <span>Тарифы</span>
-    </a>
-    <a href="/reviews" class="mobile__menu-tab" id="tab-link" title="Отзывы">
-      <svg
-        width="21"
-        height="20"
-        viewBox="0 0 21 20"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M2.5 18.3334V3.33335C2.5 2.87502 2.66333 2.4828 2.99 2.15669C3.31667 1.83058 3.70889 1.66724 4.16667 1.66669H17.5C17.9583 1.66669 18.3508 1.83002 18.6775 2.15669C19.0042 2.48335 19.1672 2.87558 19.1667 3.33335V13.3334C19.1667 13.7917 19.0036 14.1842 18.6775 14.5109C18.3514 14.8375 17.9589 15.0006 17.5 15H5.83333L2.5 18.3334ZM8.39583 11.875L10.8333 10.3959L13.2708 11.875L12.625 9.10419L14.7917 7.22919L11.9375 7.00002L10.8333 4.37502L9.72917 7.00002L6.875 7.22919L9.04167 9.10419L8.39583 11.875Z"
-          fill="currentColor"></path>
-      </svg>
-      <span>Отзывы</span>
-    </a>
-    <a href="/contacts" class="mobile__menu-tab" title="Контакты">
-      <svg
-        width="18"
-        height="20"
-        viewBox="0 0 18 20"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M16 2H15V0H13V2H5V0H3V2H2C1.46957 2 0.960859 2.21071 0.585786 2.58579C0.210714 2.96086 0 3.46957 0 4V18C0 18.5304 0.210714 19.0391 0.585786 19.4142C0.960859 19.7893 1.46957 20 2 20H16C17.1 20 18 19.1 18 18V4C18 2.9 17.1 2 16 2ZM9 5C10.66 5 12 6.34 12 8C12 9.66 10.66 11 9 11C7.34 11 6 9.66 6 8C6 6.34 7.34 5 9 5ZM15 17H3V16C3 14 7 12.9 9 12.9C11 12.9 15 14 15 16V17Z"
-          fill="currentColor"></path>
-      </svg>
+          <path
+            d="M10.9677 1.79032C10.9677 1.0777 11.5454 0.5 12.2581 0.5H18.7097C19.4223 0.5 20 1.0777 20 1.79032V8.24194C20 8.95456 19.4223 9.53226 18.7097 9.53226H12.2581C11.5454 9.53226 10.9677 8.95456 10.9677 8.24194V1.79032Z"
+            fill="currentColor"></path>
+          <path
+            d="M10.9677 12.1129C10.9677 11.4003 11.5454 10.8226 12.2581 10.8226H18.7097C19.4223 10.8226 20 11.4003 20 12.1129V18.5645C20 19.2771 19.4223 19.8548 18.7097 19.8548H12.2581C11.5454 19.8548 10.9677 19.2771 10.9677 18.5645V12.1129Z"
+            fill="currentColor"></path>
+          <path
+            d="M0 12.1129C0 11.4003 0.577697 10.8226 1.29032 10.8226H7.74194C8.45456 10.8226 9.03226 11.4003 9.03226 12.1129V18.5645C9.03226 19.2771 8.45456 19.8548 7.74194 19.8548H1.29032C0.577697 19.8548 0 19.2771 0 18.5645V12.1129Z"
+            fill="currentColor"></path>
+        </svg>
+        <span>Меню</span>
+      </div>
+      <a href="/catalog" class="mobile__menu-tab" id="tab-link" title="Каталог">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-door-open"
+          ><path d="M13 4h3a2 2 0 0 1 2 2v14"></path><path d="M2 20h3"
+          ></path><path d="M13 20h9"></path><path d="M10 12v.01"></path><path
+            d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561Z"
+          ></path></svg
+        >
+        <span>Каталог</span>
+      </a>
+      <a href="/services" class="mobile__menu-tab" id="tab-link" title="Услуги">
+        <svg
+          width="20"
+          height="23"
+          viewBox="0 0 20 23"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clip-path="url(#clip0_2089_51)">
+            <path
+              d="M8 16.5736L12 12.5148M8 12.5148H8.009M11.991 16.5736H12M10 21.6471C12.1217 21.6471 14.1565 20.792 15.6568 19.2695C17.1572 17.7472 18 15.6824 18 13.5295C18 7.44126 10 1.35303 10 1.35303C9.612 3.8766 9.232 5.23123 8 7.44126C6.8 6.8781 6.5 6.42656 6 5.15817C4 7.44126 2 10.4854 2 13.5295C2 15.6824 2.84285 17.7472 4.34315 19.2695C5.84344 20.792 7.87827 21.6471 10 21.6471Z"
+              stroke="currentColor"
+              stroke-width="2.34"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </g>
+          <defs>
+            <clipPath id="clip0_2089_51">
+              <rect width="20" height="23" fill="white"></rect>
+            </clipPath>
+          </defs>
+        </svg>
+        <span>Услуги</span>
+      </a>
+      <a href="/contacts" class="mobile__menu-tab" title="Контакты">
+        <svg
+          width="18"
+          height="20"
+          viewBox="0 0 18 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 2H15V0H13V2H5V0H3V2H2C1.46957 2 0.960859 2.21071 0.585786 2.58579C0.210714 2.96086 0 3.46957 0 4V18C0 18.5304 0.210714 19.0391 0.585786 19.4142C0.960859 19.7893 1.46957 20 2 20H16C17.1 20 18 19.1 18 18V4C18 2.9 17.1 2 16 2ZM9 5C10.66 5 12 6.34 12 8C12 9.66 10.66 11 9 11C7.34 11 6 9.66 6 8C6 6.34 7.34 5 9 5ZM15 17H3V16C3 14 7 12.9 9 12.9C11 12.9 15 14 15 16V17Z"
+            fill="currentColor"></path>
+        </svg>
 
-      <span>Контакты</span>
-    </a>
-  </div>
-
-  <div class="mobile__menu-content">
-    <div
-      class="mobile__menu-close"
-      id="close"
-      role="button"
-      aria-label="Закрыть меню"
-      tabindex="0"
-    >
-      <svg
-        width="23"
-        height="23"
-        viewBox="0 0 23 23"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M1 1L22 22" stroke="white"></path>
-        <path d="M1 1L22 22" stroke="white"></path>
-        <path d="M1 1L22 22" stroke="white"></path>
-        <path d="M22 1L1 22" stroke="white"></path>
-        <path d="M22 1L1 22" stroke="white"></path>
-        <path d="M22 1L1 22" stroke="white"></path>
-      </svg>
+        <span>Контакты</span>
+      </a>
     </div>
-    <div id="content"></div>
+
+    <div class="mobile__menu-content">
+      <div
+        class="mobile__menu-close"
+        id="close"
+        role="button"
+        aria-label="Закрыть меню"
+        tabindex="0"
+      >
+        <svg
+          width="23"
+          height="23"
+          viewBox="0 0 23 23"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M1 1L22 22" stroke="white"></path>
+          <path d="M1 1L22 22" stroke="white"></path>
+          <path d="M1 1L22 22" stroke="white"></path>
+          <path d="M22 1L1 22" stroke="white"></path>
+          <path d="M22 1L1 22" stroke="white"></path>
+          <path d="M22 1L1 22" stroke="white"></path>
+        </svg>
+      </div>
+      <div id="content"></div>
+    </div>
   </div>
-</div> -->
+</header>

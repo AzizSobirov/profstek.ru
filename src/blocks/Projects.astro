@@ -21,20 +21,25 @@ const { title = "Реализованные проекты", desc, isMain = fals
     {projects.map((project) => <Project project={project} />)}
   </div>
 
-  <Button href="/portfolio">
-    Все проекты
-    <svg
-      width="37"
-      height="8"
-      viewBox="0 0 37 8"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M36.8536 4.35355C37.0488 4.15829 37.0488 3.84171 36.8536 3.64645L33.6716 0.464466C33.4763 0.269204 33.1597 0.269204 32.9645 0.464466C32.7692 0.659728 32.7692 0.976311 32.9645 1.17157L35.7929 4L32.9645 6.82843C32.7692 7.02369 32.7692 7.34027 32.9645 7.53553C33.1597 7.7308 33.4763 7.7308 33.6716 7.53553L36.8536 4.35355ZM0 4.5H36.5V3.5H0V4.5Z"
-        fill="white"></path>
-    </svg>
-  </Button>
+  {
+    !isMain && (
+      <Button href="/portfolio">
+        Все проекты
+        <svg
+          width="37"
+          height="8"
+          viewBox="0 0 37 8"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M36.8536 4.35355C37.0488 4.15829 37.0488 3.84171 36.8536 3.64645L33.6716 0.464466C33.4763 0.269204 33.1597 0.269204 32.9645 0.464466C32.7692 0.659728 32.7692 0.976311 32.9645 1.17157L35.7929 4L32.9645 6.82843C32.7692 7.02369 32.7692 7.34027 32.9645 7.53553C33.1597 7.7308 33.4763 7.7308 33.6716 7.53553L36.8536 4.35355ZM0 4.5H36.5V3.5H0V4.5Z"
+            fill="white"
+          />
+        </svg>
+      </Button>
+    )
+  }
 </Section>
 
 <style lang="scss" is:global>
@@ -45,6 +50,7 @@ const { title = "Реализованные проекты", desc, isMain = fals
 
     .text-h2 + .text-p {
       margin-bottom: rem(50);
+      max-width: rem(1005);
 
       @include media("3xl") {
         margin-bottom: rem(30);
@@ -59,10 +65,21 @@ const { title = "Реализованные проекты", desc, isMain = fals
       width: 100%;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: rem(40) rem(20);
+      gap: rem(20);
+
+      @include media("lg") {
+        grid-template-columns: 1fr;
+      }
     }
 
     &__item {
+      @include media("1025px", min-width) {
+        min-height: rem(250);
+
+        &:first-child {
+          grid-row-start: span 2;
+        }
+      }
     }
 
     &__list + .btn {
@@ -71,22 +88,27 @@ const { title = "Реализованные проекты", desc, isMain = fals
   }
 
   .projects.is-main {
-    .projects__list {
-      grid-template-rows: repeat(2, 1fr);
-      gap: rem(20);
+    padding: rem(50) 0 rem(80);
 
-      @include media("lg") {
-        grid-template-columns: 1fr;
-      }
+    @include media("sm") {
+      padding: rem(35) 0;
+    }
+
+    .projects__list {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: unset;
+      gap: rem(40) rem(20);
     }
 
     .projects__item {
-      @include media("1025px", min-width) {
-        min-height: rem(250);
+      min-height: rem(516);
+
+      @include media("lg") {
+        min-height: rem(360);
       }
 
       &:first-child {
-        grid-row-start: span 2;
+        grid-row-start: span 1 !important;
       }
     }
   }

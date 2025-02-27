@@ -84,6 +84,120 @@ const modal = {
 };
 modal.init();
 
+// header
+const header = document.querySelector(".header");
+if (header) {
+  const menu = header.querySelector(".header__menu");
+  const services = menu.querySelectorAll(".menu-item-has-children");
+  const contacts = header.querySelector(".header__contacts");
+  let lastScrollY = window.scrollY;
+
+  if (window.innerWidth > 1024) {
+    window.addEventListener("scroll", () => {
+      const header = document.querySelector("header");
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY) {
+        // Scrolling Down
+        header.classList.remove("up");
+        header.classList.add("down");
+      } else {
+        // Scrolling Up
+        header.classList.remove("down");
+        header.classList.add("up");
+      }
+
+      header.classList.toggle("sticky", currentScrollY > 0);
+      lastScrollY = currentScrollY;
+    });
+  }
+
+  const tabs = header.querySelectorAll("#tab");
+  const tabLinks = header.querySelectorAll("#tab-link");
+  const tabsBody = header.querySelector(".mobile__menu-content");
+  const tabsContent = tabsBody.querySelector("#content");
+  const tabsContentClose = tabsBody.querySelector("#close");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const isActive = tab.classList.contains("active");
+      tabs.forEach((tab) => tab.classList.remove("active"));
+
+      if (isActive) {
+        tabsBody.classList.remove("show");
+
+        // Wait for the animation to finish before setting display to 'none'
+        tabsBody.addEventListener("transitionend", function handler(event) {
+          if (
+            event.propertyName === "transform" &&
+            !tabsBody.classList.contains("show")
+          ) {
+            tabsBody.style.display = "none";
+            tabsContent.innerHTML = "";
+            tabsBody.removeEventListener("transitionend", handler);
+          }
+        });
+      }
+
+      // If tab was not already active, show the content
+      if (!isActive) {
+        tab.classList.add("active");
+        tabsBody.style.display = "flex";
+
+        requestAnimationFrame(() => {
+          tabsBody.classList.add("show");
+        });
+
+        if (tab.dataset.toggle == "menu") {
+          tabsContent.innerHTML = menu.innerHTML + contacts.outerHTML;
+        } else {
+          tabsContent.innerHTML = servicesSubMenu.outerHTML;
+        }
+      }
+    });
+  });
+
+  tabLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      tabs.forEach((tab) => {
+        tab.classList.remove("active");
+      });
+
+      // Add animation for hiding
+      tabsBody.classList.remove("show");
+      tabsBody.addEventListener("transitionend", function handler(event) {
+        if (
+          event.propertyName === "transform" &&
+          !tabsBody.classList.contains("show")
+        ) {
+          tabsBody.style.display = "none";
+          tabsContent.innerHTML = "";
+          tabsBody.removeEventListener("transitionend", handler);
+        }
+      });
+    });
+  });
+
+  tabsContentClose.addEventListener("click", () => {
+    // Add animation for hiding
+    tabsBody.classList.remove("show");
+    tabsBody.addEventListener("transitionend", function handler(event) {
+      if (
+        event.propertyName === "transform" &&
+        !tabsBody.classList.contains("show")
+      ) {
+        tabsBody.style.display = "none";
+        tabsContent.innerHTML = "";
+        tabsBody.removeEventListener("transitionend", handler);
+      }
+    });
+
+    tabs.forEach((tab) => {
+      tab.classList.remove("active");
+    });
+  });
+}
+
 // Accordions
 const getAccordionParents = document.querySelectorAll("[data-accordion");
 getAccordionParents.forEach((parent) => {
@@ -121,6 +235,29 @@ getAccordionParents.forEach((parent) => {
     });
   });
 });
+
+// Seo
+const seo = document.querySelector(".seo");
+if (seo) {
+  const content = seo.querySelector(".seo__content");
+  const contentFirstP = content.querySelector("p");
+  const btn = seo.querySelector(".btn");
+
+  let contentHeight = contentFirstP.offsetHeight;
+  content.style.maxHeight = contentHeight + "px";
+
+  btn.addEventListener("click", () => {
+    if (btn.classList.contains("active")) {
+      btn.classList.remove("active");
+      btn.textContent = "Подробнее";
+      content.style.maxHeight = contentHeight + "px";
+    } else {
+      btn.classList.add("active");
+      btn.textContent = "Скрыть";
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
 
 // Footer
 const currentYear = document.getElementById("current-year");
