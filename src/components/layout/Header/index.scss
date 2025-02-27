@@ -16,6 +16,7 @@
     padding: rem(32) 0;
     width: 100%;
     background: #fff;
+    --text-color: #003a51;
 
     @include media("3xl") {
       padding: rem(15) 0;

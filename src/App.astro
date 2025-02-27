@@ -6,12 +6,12 @@ const version = Math.random().toString(16).slice(10);
 
 const styles: string[] = [
   "./assets/css/swiper.min.css",
-  // "./assets/css/fancybox.min.css",
+  "./assets/css/fancybox.min.css",
 ];
 
 const scripts: string[] = [
   "./assets/js/swiper.min.js",
-  // "./assets/js/fancybox.min.js",
+  "./assets/js/fancybox.min.js",
   `./assets/js/app.js?v=${version}`,
 ];
 
@@ -41,9 +41,9 @@ const { title } = Astro.props;
       <!-- Main -->
       <slot />
       <!-- The Footer -->
-      <!-- <Footer /> -->
+      <Footer />
       <!-- Modal -->
-      <!-- <Modal /> -->
+      <Modal />
       <slot name="footer" />
     </div>
     <!-- Scripts -->
