@@ -38,14 +38,14 @@ const { project } = Astro.props;
       padding: rem(30);
     }
     @include media("lg") {
-      min-height: rem(360);
+      min-height: rem(360) !important;
     }
     @include media("sm") {
-      min-height: rem(280);
+      min-height: rem(280) !important;
     }
     @include media("xs") {
       padding: rem(20);
-      min-height: rem(220);
+      min-height: rem(220) !important;
     }
 
     .bg-img {

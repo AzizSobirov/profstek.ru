@@ -21,7 +21,12 @@ import TheForm from "@/components/TheForm.astro";
   @use "scss/helpers" as *;
 
   .application {
+    margin: rem(50) 0;
     position: relative;
+
+    @include media("sm") {
+      margin: rem(35) 0;
+    }
 
     &__content {
       padding: rem(80) 0;

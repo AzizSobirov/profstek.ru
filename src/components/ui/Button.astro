@@ -65,28 +65,34 @@ const Tag = href ? "a" : "button";
       }
     }
 
-    // &-secondary {
-    //   padding: 0 rem(44);
-    //   height: rem(48);
-    //   color: #fff;
-    //   background: var(--text-color);
-    //   border: rem(1) solid var(--text-color);
-    //   border-radius: 9999px;
-    //   gap: rem(14);
+    &-secondary {
+      height: rem(60);
+      width: rem(264);
+      color: #fff;
+      background: var(--primary);
+      border-radius: 9999px;
+      gap: rem(14);
 
-    //   svg {
-    //     transition: var(--transition-ease);
-    //   }
+      svg {
+        transition: var(--transition-ease);
+      }
 
-    //   &:hover {
-    //     color: #fff;
-    //     background: var(--text-color);
+      &:hover {
+        color: #fff;
+        background: var(--secondary);
 
-    //     svg {
-    //       transform: translateX(rem(5));
-    //     }
-    //   }
-    // }
+        svg {
+          transform: translateX(rem(5));
+        }
+      }
+
+      @include media("sm") {
+        width: rem(240);
+        height: rem(56);
+        font-size: rem(16);
+        gap: rem(20);
+      }
+    }
 
     &-outline {
       height: rem(56);

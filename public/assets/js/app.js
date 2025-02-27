@@ -335,6 +335,41 @@ let reviewsSwiper = new Swiper(".reviews .reviews__swiper .swiper", {
   },
 });
 
+let projectSwiper = new Swiper(".project .project__images", {
+  slidesPerView: "auto",
+  spaceBetween: 12,
+  navigation: {
+    nextEl: ".project .swiper-button-next",
+    prevEl: ".project .swiper-button-prev",
+  },
+  breakpoints: {
+    475: {
+      spaceBetween: 15,
+    },
+    1280: {
+      spaceBetween: 20,
+    },
+  },
+});
+
+let installationSwiper = new Swiper(".installation .installation__list", {
+  slidesPerView: "auto",
+  spaceBetween: 12,
+  navigation: {
+    nextEl: ".installation .swiper-button-next",
+    prevEl: ".installation .swiper-button-prev",
+  },
+  breakpoints: {
+    475: {
+      spaceBetween: 15,
+    },
+    1280: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+  },
+});
+
 // Initialize the fancybox
 const fancyboxTriggers = Array.from(
   document.querySelectorAll("[data-fancybox]")

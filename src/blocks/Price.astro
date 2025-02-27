@@ -1,0 +1,181 @@
+---
+import { Section, H2, P, Image, Icon, Button } from "ui";
+
+interface Props {
+  title: string;
+  desc?: string;
+  prices: {
+    name: string;
+    price: string;
+  }[];
+}
+
+const { title, desc, prices } = Astro.props;
+---
+
+<!-- Price -->
+<Section name="price">
+  <H2>{title}</H2>
+
+  <div class="price__table">
+    <div class="price__table-header">
+      <div class="row">
+        <div class="col">Услуга</div>
+        <div class="col">Цена</div>
+        <div class="col"></div>
+      </div>
+    </div>
+    <div class="price__table-body">
+      {
+        prices.map((price) => (
+          <div class="row">
+            <div class="col">
+              <strong>Наименование</strong>
+              <p>{price.name}</p>
+            </div>
+            <div class="col">
+              <strong>Цена</strong>
+              <p>{price.price}</p>
+            </div>
+            <div class="col">
+              <Button data-modal="callback">Заказать</Button>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .price {
+    position: relative;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(50);
+
+      @include media("sm") {
+        gap: rem(30);
+      }
+    }
+
+    &__table {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      &-header {
+        width: 100%;
+        background: #d9d9d9;
+
+        @include media("sm") {
+          display: none;
+        }
+      }
+
+      &-body {
+        width: 100%;
+
+        .row:nth-child(even) {
+          background: rgba(0, 199, 194, 0.33);
+        }
+
+        @include media("sm") {
+          .row:nth-child(odd) {
+            background: rgba(0, 199, 194, 0.33);
+          }
+          .row:nth-child(even) {
+            background: transparent;
+          }
+        }
+      }
+
+      .row {
+        padding: rem(10) rem(35);
+        width: 100%;
+        min-height: rem(62);
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: rem(20);
+
+        @include media("md") {
+          padding: rem(10) rem(20);
+        }
+        @include media("sm") {
+          padding: rem(15);
+          flex-direction: column;
+          align-items: flex-start;
+          gap: rem(10);
+        }
+      }
+
+      .col {
+        flex: 1 1 calc(25% - 20px);
+
+        &:not(:first-child) {
+          text-align: center;
+        }
+
+        &:last-child {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        @include media("sm") {
+          width: 100%;
+          flex-basis: 100%;
+
+          &:not(:first-child) {
+            text-align: left;
+          }
+        }
+
+        strong {
+          font-weight: 600;
+          display: none;
+
+          @include media("sm") {
+            display: inline-block;
+
+            &::after {
+              content: ":";
+            }
+          }
+        }
+
+        p {
+          display: inline-block;
+        }
+      }
+
+      .btn {
+        width: rem(122);
+        height: rem(36);
+        color: var(--primary);
+        font-size: rem(16);
+        text-transform: capitalize;
+        background: #fff;
+        border: none;
+
+        &:hover {
+          color: #fff;
+          background: var(--primary);
+        }
+
+        @include media("sm") {
+          margin-top: rem(5);
+          width: 100%;
+          height: rem(40);
+        }
+      }
+    }
+  }
+</style>

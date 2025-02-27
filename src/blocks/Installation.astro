@@ -1,0 +1,232 @@
+---
+import { Section, H2, H3, P, BgImg, Image, Icon, Button } from "ui";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!-- Installation -->
+<Section name="installation">
+  <H2>{title}</H2>
+
+  <div class="installation__list swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div
+          class="img"
+          data-fancybox="installation"
+          data-src="/assets/img/installation/1.png"
+        >
+          <Image src="installation/1.png" />
+        </div>
+
+        <div class="text-title">Этап 1</div>
+        <p class="text-p">Описание этапа</p>
+      </div>
+
+      <div class="swiper-slide">
+        <div
+          class="img"
+          data-fancybox="installation"
+          data-src="/assets/img/installation/2.png"
+        >
+          <Image src="installation/2.png" />
+        </div>
+
+        <div class="text-title">Этап 3</div>
+        <p class="text-p">Описание этапа</p>
+      </div>
+
+      <div class="swiper-slide">
+        <div
+          class="img"
+          data-fancybox="installation"
+          data-src="/assets/img/installation/1.png"
+        >
+          <Image src="installation/1.png" />
+        </div>
+
+        <div class="text-title">Этап 3</div>
+        <p class="text-p">Описание этапа</p>
+      </div>
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .installation {
+    position: relative;
+
+    &__list {
+      position: relative;
+      width: 100%;
+      overflow: visible;
+      user-select: none;
+
+      .swiper-slide {
+        position: relative;
+        transition: opacity var(--transition-ease);
+        opacity: 0.5;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        gap: rem(10);
+
+        @include media("xl") {
+          width: rem(560);
+        }
+        @include media("lg") {
+          width: rem(520);
+        }
+        @include media("sm") {
+          width: rem(420);
+        }
+        @include media("xs") {
+          width: rem(320);
+        }
+        @include media("375px") {
+          width: rem(300);
+        }
+        @include media("xxs") {
+          width: rem(280);
+        }
+
+        &-active,
+        &-next {
+          opacity: 1;
+        }
+      }
+
+      .img {
+        position: relative;
+        height: rem(450);
+        border-radius: rem(20);
+        overflow: hidden;
+        cursor: zoom-in;
+
+        @include media("3xl") {
+          height: rem(400);
+        }
+        @include media("xl") {
+          height: rem(360);
+        }
+        @include media("lg") {
+          height: rem(340);
+        }
+        @include media("sm") {
+          height: rem(280);
+        }
+        @include media("xs") {
+          height: rem(220);
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            to bottom,
+            transparent,
+            rgba(0, 0, 0, 0.65)
+          );
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: rem(20);
+        }
+      }
+
+      .text-title {
+        margin-top: rem(10);
+        font-size: rem(44);
+        line-height: 1.2;
+
+        @include media("3xl") {
+          font-size: rem(36);
+        }
+        @include media("sm") {
+          font-size: rem(32);
+        }
+        @include media("xs") {
+          font-size: rem(24);
+        }
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        margin: 0 !important;
+        top: calc(rem(450) / 2);
+        transform: translateY(-50%);
+        width: rem(65);
+        height: rem(65);
+        color: #262626;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        --swiper-navigation-sides-offset: #{rem(-40)};
+
+        @include media("2xl") {
+          --swiper-navigation-sides-offset: #{rem(20)};
+        }
+        @include media("xl") {
+          display: none !important;
+        }
+
+        @include media("3xl") {
+          top: calc(rem(400) / 2);
+        }
+        @include media("xl") {
+          top: calc(rem(360) / 2);
+        }
+        @include media("lg") {
+          top: calc(rem(340) / 2);
+        }
+        @include media("sm") {
+          top: calc(rem(280) / 2);
+        }
+        @include media("xs") {
+          top: calc(rem(220) / 2);
+        }
+
+        &::after {
+          font-size: rem(24);
+        }
+
+        &.swiper-button-disabled {
+          opacity: 0;
+          pointer-events: none;
+        }
+      }
+
+      .swiper-button-prev {
+        &::after {
+          margin-right: rem(2.5);
+        }
+      }
+
+      .swiper-button-next {
+        &::after {
+          margin-left: rem(2.5);
+        }
+      }
+    }
+  }
+</style>

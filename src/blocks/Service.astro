@@ -1,0 +1,143 @@
+---
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+
+interface Props {
+  title: string;
+  desc: string;
+  img: string;
+}
+
+const { title = "Реализованные проекты", desc, img } = Astro.props;
+---
+
+<!-- Service -->
+<Section name="service">
+  <div class="service__content">
+    <div class="service__text">
+      <H2>{title}</H2>
+      <P>{desc}</P>
+      <H3>От 99 999 ₽</H3>
+      <Button variant="secondary" data-modal="callback">
+        Заказать услугу <svg
+          width="37"
+          height="9"
+          viewBox="0 0 37 9"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M36.8536 4.85355C37.0488 4.65829 37.0488 4.34171 36.8536 4.14645L33.6716 0.964466C33.4763 0.769204 33.1597 0.769204 32.9645 0.964466C32.7692 1.15973 32.7692 1.47631 32.9645 1.67157L35.7929 4.5L32.9645 7.32843C32.7692 7.52369 32.7692 7.84027 32.9645 8.03553C33.1597 8.2308 33.4763 8.2308 33.6716 8.03553L36.8536 4.85355ZM0 5H36.5V4H0V5Z"
+            fill="white"></path>
+        </svg></Button
+      >
+    </div>
+
+    <div class="service__img">
+      <Image src={img} />
+    </div>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .service {
+    position: relative;
+    padding-top: rem(50) !important;
+
+    @include media("sm") {
+      padding-top: rem(35) !important;
+    }
+
+    &__content {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: rem(60);
+
+      @include media("lg") {
+        flex-direction: column-reverse;
+      }
+      @include media("md") {
+        gap: rem(40);
+      }
+      @include media("sm") {
+        gap: rem(30);
+      }
+    }
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(30);
+
+      @include media("sm") {
+        gap: rem(20);
+      }
+
+      .text-h2 {
+        margin-bottom: rem(20);
+
+        @include media("sm") {
+          margin-bottom: 0;
+        }
+      }
+
+      .text-p {
+        max-width: rem(875);
+      }
+    }
+
+    &__img {
+      position: relative;
+      min-width: rem(610);
+      width: rem(610);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include media("3xl") {
+        min-width: rem(520);
+        width: rem(520);
+      }
+      @include media("xl") {
+        min-width: rem(420);
+        width: rem(420);
+      }
+      @include media("lg") {
+        padding: 0 rem(20);
+        min-width: 100%;
+        width: 100%;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-40%, -10%);
+        z-index: -1;
+        width: rem(186);
+        height: rem(236);
+        background-image: url('data:image/svg+xml,<svg width="186" height="236" viewBox="0 0 186 236" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="121.5" cy="64.5" r="64.5" fill="url(%23paint0_linear_2111_2)" /><circle cx="57" cy="171" r="34" fill="url(%23paint1_linear_2111_2)" /><circle cx="11.5" cy="224.5" r="11.5" fill="url(%23paint2_linear_2111_2)" /><defs><linearGradient id="paint0_linear_2111_2" x1="121.5" y1="0" x2="121.5" y2="129" gradientUnits="userSpaceOnUse"><stop stop-color="%2300C7C2" /><stop offset="1" stop-color="%2300A8A4" /></linearGradient><linearGradient id="paint1_linear_2111_2" x1="57" y1="137" x2="57" y2="205" gradientUnits="userSpaceOnUse"><stop stop-color="%2300C7C2" /><stop offset="1" stop-color="%2300A8A4" /></linearGradient><linearGradient id="paint2_linear_2111_2" x1="11.5" y1="213" x2="11.5" y2="236" gradientUnits="userSpaceOnUse"><stop stop-color="%2300C7C2" /><stop offset="1" stop-color="%2300A8A4" /></linearGradient></defs></svg>');
+
+        @include media("lg") {
+          transform: translate(-40%, -10%) scale(0.8);
+        }
+      }
+
+      img {
+        width: 100%;
+        max-height: rem(700);
+        object-fit: contain;
+        object-position: center;
+
+        @include media("lg") {
+          max-height: rem(500);
+        }
+      }
+    }
+  }
+</style>

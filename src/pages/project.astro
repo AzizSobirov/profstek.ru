@@ -2,25 +2,91 @@
 import App from "@/App.astro";
 import * as Blocks from "blocks";
 
-import { Section, H2, Image } from "ui";
+import { Section, H2, H3, BgImg, Image, Button } from "ui";
 ---
 
 <App title="Карточка(Наши работы)">
   <main>
+    <!-- Project -->
     <Section name="project">
       <H2>БЦ Крылатское</H2>
 
-      <div class="discounts__list swiper">
+      <div class="project__images swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <Image src="discounts/1.png" />
+            <Image data-fancybox="gallery" src="projects/1.png" />
+          </div>
+          <div class="swiper-slide">
+            <Image data-fancybox="gallery" src="projects/2.png" />
+          </div>
+          <div class="swiper-slide">
+            <Image data-fancybox="gallery" src="projects/3.png" />
+          </div>
+          <div class="swiper-slide">
+            <Image data-fancybox="gallery" src="projects/1.png" />
           </div>
         </div>
 
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
       </div>
+
+      <div class="project__details">
+        <div class="project__details-item">
+          <H3>Задача:</H3>
+          <p>
+            Оптимально распределить рабочее пространство помещения. Подчеркнуть
+            индивидуальность. Проработать входную зону и переговорную зону.
+          </p>
+        </div>
+
+        <div class="project__details-item">
+          <H3>Тип объекта:</H3>
+          <H3>Бизнес-центр</H3>
+        </div>
+
+        <div class="project__details-item">
+          <H3>Тип перегородок:</H3>
+          <H3>CSP – 89 м2, Modern – 188 м2</H3>
+        </div>
+
+        <div class="project__details-item">
+          <H3>Стеновые панели:</H3>
+          <H3>82 м2</H3>
+        </div>
+
+        <div class="project__details-item">
+          <H3>Срок реализации:</H3>
+          <H3>21 день</H3>
+        </div>
+      </div>
     </Section>
+    <!-- Implement -->
+    <Section name="implement">
+      <Fragment slot="header">
+        <div class="implement__content">
+          <BgImg src="implement-bg.png" />
+
+          <div class="container">
+            <H2>Реализуем и Ваш проект мечты!</H2>
+            <Button data-modal="callback"
+              >Заказать расчет <svg
+                width="37"
+                height="9"
+                viewBox="0 0 37 9"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M36.8536 4.85355C37.0488 4.65829 37.0488 4.34171 36.8536 4.14645L33.6716 0.964466C33.4763 0.769204 33.1597 0.769204 32.9645 0.964466C32.7692 1.15973 32.7692 1.47631 32.9645 1.67157L35.7929 4.5L32.9645 7.32843C32.7692 7.52369 32.7692 7.84027 32.9645 8.03553C33.1597 8.2308 33.4763 8.2308 33.6716 8.03553L36.8536 4.85355ZM0 5H36.5V4H0V5Z"
+                  fill="#00C7C2"></path>
+              </svg></Button
+            >
+          </div>
+        </div>
+      </Fragment>
+    </Section>
+    <Blocks.Projects title="Другие реализованные проекты" length={2} isMain />
   </main>
 </App>
 
@@ -34,16 +100,13 @@ import { Section, H2, Image } from "ui";
       padding-top: rem(35) !important;
     }
 
-    &__list {
+    &__images {
       position: relative;
       width: 100%;
-      height: rem(450);
+      height: rem(420);
       overflow: visible;
       user-select: none;
 
-      @include media("3xl") {
-        height: rem(400);
-      }
       @include media("xl") {
         height: rem(360);
       }
@@ -59,21 +122,13 @@ import { Section, H2, Image } from "ui";
 
       .swiper-slide {
         position: relative;
-        padding: rem(55) rem(32);
-        color: #fff;
+        width: rem(630);
         border-radius: rem(20);
-        transition: opacity var(--transition-ease);
-        opacity: 0.5;
         overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-end;
-        gap: rem(15);
+        transition: opacity var(--transition-ease);
+        opacity: 0.4;
+        cursor: zoom-in;
 
-        @include media("3xl") {
-          padding: rem(40) rem(32);
-        }
         @include media("xl") {
           width: rem(560);
         }
@@ -81,9 +136,7 @@ import { Section, H2, Image } from "ui";
           width: rem(520);
         }
         @include media("sm") {
-          padding: rem(25) rem(20);
           width: rem(420);
-          gap: rem(10);
         }
         @include media("xs") {
           width: rem(320);
@@ -95,9 +148,38 @@ import { Section, H2, Image } from "ui";
           width: rem(280);
         }
 
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 199, 194, 0.48);
+          background-image: url('data:image/svg+xml,<svg width="107" height="107" viewBox="0 0 107 107" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M35.6667 49.0417H49.0417M49.0417 49.0417H62.4167M49.0417 49.0417V35.6667M49.0417 49.0417V62.4167M75.7917 75.7917L93.625 93.625M13.375 49.0417C13.375 58.5011 17.1327 67.573 23.8215 74.2618C30.5103 80.9506 39.5823 84.7083 49.0417 84.7083C58.5011 84.7083 67.573 80.9506 74.2618 74.2618C80.9506 67.573 84.7083 58.5011 84.7083 49.0417C84.7083 39.5823 80.9506 30.5103 74.2618 23.8215C67.573 17.1327 58.5011 13.375 49.0417 13.375C39.5823 13.375 30.5103 17.1327 23.8215 23.8215C17.1327 30.5103 13.375 39.5823 13.375 49.0417Z" stroke="white" stroke-width="3.94" stroke-linecap="round" stroke-linejoin="round" /></svg>');
+          background-size: 20% auto;
+          background-position: center;
+          background-repeat: no-repeat;
+          pointer-events: none;
+          transition: var(--transition-ease);
+          opacity: 0;
+        }
+
+        &:hover {
+          &::before {
+            opacity: 1;
+          }
+        }
+
         &-active,
         &-next {
           opacity: 1;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
       }
 
@@ -142,6 +224,71 @@ import { Section, H2, Image } from "ui";
         &::after {
           margin-left: rem(2.5);
         }
+      }
+    }
+
+    &__details {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: rem(50) rem(60);
+
+      @include media("sm") {
+        gap: rem(25) rem(40);
+      }
+
+      &-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: rem(20);
+
+        @include media("sm") {
+          gap: rem(10);
+        }
+
+        &:nth-child(1) {
+          flex-basis: 100%;
+        }
+
+        .text-h3:nth-child(2) {
+          color: var(--text-color);
+        }
+
+        p {
+          max-width: rem(500);
+        }
+      }
+    }
+  }
+
+  .implement {
+    &__content {
+      position: relative;
+      padding: rem(50) 0;
+      width: 100%;
+
+      @include media("sm") {
+        padding: rem(25) 0;
+      }
+    }
+
+    .text-h2 {
+      color: #fff;
+    }
+
+    .btn {
+      height: rem(46);
+      width: rem(220);
+      color: var(--primary);
+      background: #fff;
+
+      @include media("641px", min-width) {
+        height: rem(60);
+        width: rem(265);
+        gap: rem(20);
       }
     }
   }

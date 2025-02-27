@@ -6,10 +6,16 @@ import { projects } from "@/store";
 interface Props {
   title?: string;
   desc?: string;
+  length?: number;
   isMain?: boolean;
 }
 
-const { title = "Реализованные проекты", desc, isMain = false } = Astro.props;
+const {
+  title = "Реализованные проекты",
+  desc,
+  length = 3,
+  isMain = false,
+} = Astro.props;
 ---
 
 <!-- Projects -->
@@ -18,7 +24,7 @@ const { title = "Реализованные проекты", desc, isMain = fals
   {desc && <P>{desc}</P>}
 
   <div class="projects__list">
-    {projects.map((project) => <Project project={project} />)}
+    {projects.slice(0, length).map((project) => <Project project={project} />)}
   </div>
 
   {
@@ -98,13 +104,18 @@ const { title = "Реализованные проекты", desc, isMain = fals
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: unset;
       gap: rem(40) rem(20);
+
+      @include media("lg") {
+        grid-template-columns: 1fr;
+        gap: rem(20);
+      }
     }
 
     .projects__item {
       min-height: rem(516);
 
-      @include media("lg") {
-        min-height: rem(360);
+      @include media("xl") {
+        min-height: rem(380);
       }
 
       &:first-child {
