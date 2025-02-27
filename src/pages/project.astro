@@ -1,0 +1,148 @@
+---
+import App from "@/App.astro";
+import * as Blocks from "blocks";
+
+import { Section, H2, Image } from "ui";
+---
+
+<App title="Карточка(Наши работы)">
+  <main>
+    <Section name="project">
+      <H2>БЦ Крылатское</H2>
+
+      <div class="discounts__list swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <Image src="discounts/1.png" />
+          </div>
+        </div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </Section>
+  </main>
+</App>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .project {
+    padding-top: rem(50) !important;
+
+    @include media("sm") {
+      padding-top: rem(35) !important;
+    }
+
+    &__list {
+      position: relative;
+      width: 100%;
+      height: rem(450);
+      overflow: visible;
+      user-select: none;
+
+      @include media("3xl") {
+        height: rem(400);
+      }
+      @include media("xl") {
+        height: rem(360);
+      }
+      @include media("lg") {
+        height: rem(340);
+      }
+      @include media("sm") {
+        height: rem(280);
+      }
+      @include media("xs") {
+        height: rem(220);
+      }
+
+      .swiper-slide {
+        position: relative;
+        padding: rem(55) rem(32);
+        color: #fff;
+        border-radius: rem(20);
+        transition: opacity var(--transition-ease);
+        opacity: 0.5;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        gap: rem(15);
+
+        @include media("3xl") {
+          padding: rem(40) rem(32);
+        }
+        @include media("xl") {
+          width: rem(560);
+        }
+        @include media("lg") {
+          width: rem(520);
+        }
+        @include media("sm") {
+          padding: rem(25) rem(20);
+          width: rem(420);
+          gap: rem(10);
+        }
+        @include media("xs") {
+          width: rem(320);
+        }
+        @include media("375px") {
+          width: rem(300);
+        }
+        @include media("xxs") {
+          width: rem(280);
+        }
+
+        &-active,
+        &-next {
+          opacity: 1;
+        }
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        margin: 0 !important;
+        transform: translateY(-50%);
+        width: rem(65);
+        height: rem(65);
+        color: #262626;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        --swiper-navigation-sides-offset: #{rem(-40)};
+
+        @include media("2xl") {
+          --swiper-navigation-sides-offset: #{rem(20)};
+        }
+        @include media("xl") {
+          display: none !important;
+        }
+
+        &::after {
+          font-size: rem(24);
+        }
+
+        &.swiper-button-disabled {
+          opacity: 0;
+          pointer-events: none;
+        }
+      }
+
+      .swiper-button-prev {
+        &::after {
+          margin-right: rem(2.5);
+        }
+      }
+
+      .swiper-button-next {
+        &::after {
+          margin-left: rem(2.5);
+        }
+      }
+    }
+  }
+</style>

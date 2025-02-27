@@ -1,0 +1,165 @@
+---
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+---
+
+<!-- Contact -->
+<Section name="contact">
+  <H2>Связаться с руководителем проектов</H2>
+
+  <div class="contact__form">
+    <P>
+      Остались вопросы или есть предложения? Заполните эту форму и она
+      отправиться прямиком к руководству компании
+    </P>
+
+    <form class="the-form">
+      <div class="contact__form-group">
+        <input type="text" name="name" placeholder="Ваше имя *" required />
+        <textarea name="message" placeholder="Ваше сообщение"></textarea>
+        <input
+          type="text"
+          name="phone"
+          placeholder="Ваш номер телефона *"
+          required
+        />
+        <input type="email" name="email" placeholder="Ваш email" />
+      </div>
+
+      <div class="contact__form-actions">
+        <button type="submit" class="btn btn-primary">Отправить</button>
+        <div class="text-xs">
+          Отправляя форму вы соглашаетесь с <a
+            href="#"
+            target="_blank"
+            title="Политикой конфиденциальности">Политикой конфиденциальности</a
+          >
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <Image class="contact__img" src="chat.png" />
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .contact {
+    position: relative;
+
+    &__form {
+      width: 100%;
+      max-width: rem(904);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(40);
+
+      @include media("3xl") {
+        max-width: rem(800);
+      }
+      @include media("xl") {
+        max-width: rem(680);
+      }
+      @include media("lg") {
+        max-width: 100%;
+      }
+      @include media("md") {
+        gap: rem(30);
+      }
+
+      .text-p {
+        max-width: rem(750);
+      }
+
+      &-group {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: rem(25) rem(35);
+
+        @include media("md") {
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(4, 1fr);
+          gap: rem(20);
+        }
+        @include media("xs") {
+          gap: rem(15);
+        }
+      }
+
+      &-actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: rem(30);
+
+        @include media("xs") {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: rem(15);
+        }
+      }
+
+      form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: rem(40);
+
+        @include media("md") {
+          gap: rem(30);
+        }
+      }
+
+      input,
+      textarea {
+        padding: rem(12) rem(20);
+        width: 100%;
+        border: rem(1) solid #b5b5b5;
+        border-radius: rem(25);
+      }
+
+      textarea {
+        grid-row-start: span 3;
+
+        @include media("md") {
+          grid-row-start: span 4;
+          order: 1;
+        }
+      }
+
+      button {
+        width: rem(230);
+      }
+
+      .text-xs {
+        max-width: rem(256);
+        font-size: rem(12);
+        font-weight: 300;
+
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &__img {
+      position: absolute;
+      left: 50%;
+      transform: translate(25%, 10%);
+      width: rem(604);
+      pointer-events: none;
+
+      @include media("xl") {
+        transform: translate(30%, 30%);
+        width: rem(480);
+      }
+      @include media("lg") {
+        display: none;
+      }
+    }
+  }
+</style>

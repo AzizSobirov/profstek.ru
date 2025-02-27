@@ -1,6 +1,8 @@
 export { default as Advantages } from "./Advantages.astro";
 export { default as Application } from "./Application.astro";
 export { default as Catalog } from "./Catalog.astro";
+export { default as Contact } from "./Contact.astro";
+export { default as Contacts } from "./Contacts.astro";
 export { default as Discounts } from "./Discounts.astro";
 export { default as Faq } from "./Faq.astro";
 export { default as Hero } from "./Hero.astro";

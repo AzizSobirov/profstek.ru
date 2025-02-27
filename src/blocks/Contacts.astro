@@ -1,0 +1,179 @@
+---
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+---
+
+<!-- Contacts -->
+<Section name="contacts">
+  <H2>Контакты</H2>
+
+  <div class="contacts__list">
+    <div class="contacts__item">
+      <div class="contacts__item-content">
+        <div class="contacts__item-city">
+          Москва
+
+          <div class="group">
+            <a href="#" class="icon" target="_blank">
+              <Image src="icons/whatsapp-dark.svg" />
+            </a>
+            <a href="#" class="icon" target="_blank">
+              <Image src="icons/telegram-dark.svg" />
+            </a>
+          </div>
+        </div>
+        <div class="contacts__item-address">
+          Варшавское шоссе, 150, корп. 2 БЦ “Селектика”
+        </div>
+        <a href="tel:+79854343433" target="_blank" class="contacts__item-phone">
+          +7 (985) 434-34-33
+        </a>
+        <a
+          href="mailto:msc@profstek.ru"
+          target="_blank"
+          class="contacts__item-phone"
+        >
+          msc@profstek.ru
+        </a>
+      </div>
+      <div class="contacts__item-map">
+        <iframe
+          src="https://yandex.uz/map-widget/v1/?ll=37.601976%2C55.598274&mode=search&oid=1384041343&ol=biz&sctx=ZAAAAAgBEAAaKAoSCcueBDbnUVFAERGPxMvTp0RAEhIJTl5kAn6N3z8RghspWyTtzD8iBgABAgMEBSgKOABA31BIAWoCdXqdAc3MzD2gAQCoAQC9Ad8TbzTCAQX%2FlvuTBYICT9CS0LDRgNGI0LDQstGB0LrQvtC1INGI0L7RgdGB0LUsIDE1MCwg0LrQvtGA0L8uIDIg0JHQpiDigJzQodC10LvQtdC60YLQuNC60LDigJ2KAgCSAgMyMTOaAgxkZXNrdG9wLW1hcHOwAgE%3D&sll=37.601976%2C55.598274&sspn=0.246506%2C0.084852&text=%D0%92%D0%B0%D1%80%D1%88%D0%B0%D0%B2%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5%2C%20150%2C%20%D0%BA%D0%BE%D1%80%D0%BF.%202%20%D0%91%D0%A6%20%E2%80%9C%D0%A1%D0%B5%D0%BB%D0%B5%D0%BA%D1%82%D0%B8%D0%BA%D0%B0%E2%80%9D&z=13"
+          width="560"
+          height="400"
+          allowfullscreen="true"
+          style="position:relative;"></iframe>
+      </div>
+    </div>
+
+    <div class="contacts__item">
+      <div class="contacts__item-content">
+        <div class="contacts__item-city">
+          г. Санкт-Петербург
+
+          <div class="group">
+            <a href="#" class="icon" target="_blank">
+              <Image src="icons/whatsapp-dark.svg" />
+            </a>
+            <a href="#" class="icon" target="_blank">
+              <Image src="icons/telegram-dark.svg" />
+            </a>
+          </div>
+        </div>
+        <div class="contacts__item-address">
+          Ул. Зольная, д.15 БЦ  “Морская столица”
+        </div>
+        <a href="tel:+79854343433" target="_blank" class="contacts__item-phone">
+          +7 (985) 434-34-33
+        </a>
+        <a
+          href="mailto:msc@profstek.ru"
+          target="_blank"
+          class="contacts__item-phone"
+        >
+          msc@profstek.ru
+        </a>
+      </div>
+      <div class="contacts__item-map">
+        <iframe
+          src="https://yandex.uz/map-widget/v1/?ll=30.428092%2C59.918447&mode=search&oid=18719878907&ol=biz&sctx=ZAAAAAgBEAAaKAoSCQt9sIwNzUJAEQgGED6UzEtAEhIJfEYiNIKNzz8RlQwAVdy4tT8iBgABAgMEBSgKOABAiJ8BSAFqAnV6nQHNzMw9oAEAqAEAvQF9oVGHwgEF%2B92q3kWCAkbQo9C7LiDQl9C%2B0LvRjNC90LDRjywg0LQuMTUg0JHQpiDCoOKAnNCc0L7RgNGB0LrQsNGPINGB0YLQvtC70LjRhtCw4oCdigIAkgIBMpoCDGRlc2t0b3AtbWFwcw%3D%3D&sll=30.428092%2C59.918447&sspn=0.015407%2C0.004703&text=%D0%A3%D0%BB.%20%D0%97%D0%BE%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%2C%20%D0%B4.15%20%D0%91%D0%A6%20%C2%A0%E2%80%9C%D0%9C%D0%BE%D1%80%D1%81%D0%BA%D0%B0%D1%8F%20%D1%81%D1%82%D0%BE%D0%BB%D0%B8%D1%86%D0%B0%E2%80%9D&z=17"
+          width="560"
+          height="400"
+          allowfullscreen="true"
+          style="position:relative;"></iframe>
+      </div>
+    </div>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .contacts {
+    position: relative;
+    padding-top: rem(50) !important;
+
+    @include media("sm") {
+      padding-top: rem(35) !important;
+    }
+
+    &__list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(40);
+    }
+
+    &__item {
+      min-height: rem(254);
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: rem(20);
+
+      @include media("lg") {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+      }
+      @include media("1025px", min-width) {
+        &:nth-child(2) {
+          .contacts__item-map {
+            order: -1;
+          }
+        }
+      }
+
+      &-content {
+        padding: rem(40) rem(30);
+        color: #fff;
+        font-size: rem(20);
+        background: var(--primary);
+        border-radius: rem(20);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: rem(18);
+
+        @include media("sm") {
+          padding: rem(20);
+          font-size: rem(16);
+          gap: rem(15);
+        }
+      }
+
+      &-city {
+        font-size: rem(24);
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: rem(25);
+
+        @include media("sm") {
+          font-size: rem(20);
+        }
+
+        .group {
+          flex-direction: row;
+          --icon-size: #{rem(38)};
+
+          @include media("sm") {
+            gap: rem(15);
+          }
+        }
+      }
+
+      &-map {
+        width: 100%;
+        height: 100%;
+
+        iframe {
+          width: 100%;
+          height: 100%;
+          border-radius: rem(20);
+          border: none;
+        }
+      }
+    }
+  }
+</style>
