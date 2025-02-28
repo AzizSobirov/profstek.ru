@@ -1,99 +1,502 @@
 ---
-import { Section, Card, Image, Icon, Button, H3, P } from "ui";
+import { Section, Card, Image, Icon, Button, H2, H3, P } from "ui";
 import { catalog } from "@/store";
+
+interface Props {
+  isMain?: boolean;
+}
+
+const { isMain = false } = Astro.props;
 ---
 
 <!-- Catalog -->
-<Section name="catalog">
-  <div class="catalog__filter swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide" role="button">Перегородки</div>
-      <div class="swiper-slide" role="button">Двери</div>
-      <div class="swiper-slide" role="button">Жалюзи</div>
-      <div class="swiper-slide" role="button">Профильные системы</div>
-      <div class="swiper-slide" role="button">Потолочные системы</div>
-    </div>
-  </div>
+<Section name={isMain ? "catalog is-main" : "catalog"}>
+  {
+    !isMain ? (
+      <>
+        <div class="catalog__filter swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" role="button">
+              Перегородки
+            </div>
+            <div class="swiper-slide" role="button">
+              Двери
+            </div>
+            <div class="swiper-slide" role="button">
+              Жалюзи
+            </div>
+            <div class="swiper-slide" role="button">
+              Профильные системы
+            </div>
+            <div class="swiper-slide" role="button">
+              Потолочные системы
+            </div>
+          </div>
+        </div>
 
-  <div class="catalog__list swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        {
-          catalog.map((item, index) => (
-            <Card link="#">
-              <Fragment slot="header">
-                <Image src={`catalog/${index + 1}.png`} />
-                <div class="card__header-price">От 99 999 ₽</div>
-              </Fragment>
+        <div class="catalog__list swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              {catalog.map((item, index) => (
+                <Card link="#">
+                  <Fragment slot="header">
+                    <Image src={`catalog/${index + 1}.png`} />
+                    <div class="card__header-price">От 99 999 ₽</div>
+                  </Fragment>
 
-              <H3>{item.name}</H3>
-              <P set:html={item.desc} />
-            </Card>
-          ))
-        }
-      </div>
-      <div class="swiper-slide">
-        {
-          catalog.slice(0, 2).map((item, index) => (
-            <Card link="#">
-              <Fragment slot="header">
-                <Image src={`catalog/${index + 1}.png`} />
-                <div class="card__header-price">От 99 999 ₽</div>
-              </Fragment>
+                  <H3>{item.name}</H3>
+                  <P set:html={item.desc} />
+                </Card>
+              ))}
+            </div>
+            <div class="swiper-slide">
+              {catalog.slice(0, 2).map((item, index) => (
+                <Card link="#">
+                  <Fragment slot="header">
+                    <Image src={`catalog/${index + 1}.png`} />
+                    <div class="card__header-price">От 99 999 ₽</div>
+                  </Fragment>
 
-              <H3>{item.name}</H3>
-              <P set:html={item.desc} />
-            </Card>
-          ))
-        }
-      </div>
-      <div class="swiper-slide">
-        {
-          catalog.slice(0, 4).map((item, index) => (
-            <Card link="#">
-              <Fragment slot="header">
-                <Image src={`catalog/${index + 1}.png`} />
-                <div class="card__header-price">От 99 999 ₽</div>
-              </Fragment>
+                  <H3>{item.name}</H3>
+                  <P set:html={item.desc} />
+                </Card>
+              ))}
+            </div>
+            <div class="swiper-slide">
+              {catalog.slice(0, 4).map((item, index) => (
+                <Card link="#">
+                  <Fragment slot="header">
+                    <Image src={`catalog/${index + 1}.png`} />
+                    <div class="card__header-price">От 99 999 ₽</div>
+                  </Fragment>
 
-              <H3>{item.name}</H3>
-              <P set:html={item.desc} />
-            </Card>
-          ))
-        }
-      </div>
-      <div class="swiper-slide">
-        {
-          catalog.slice(0, 1).map((item, index) => (
-            <Card link="#">
-              <Fragment slot="header">
-                <Image src={`catalog/${index + 1}.png`} />
-                <div class="card__header-price">От 99 999 ₽</div>
-              </Fragment>
+                  <H3>{item.name}</H3>
+                  <P set:html={item.desc} />
+                </Card>
+              ))}
+            </div>
+            <div class="swiper-slide">
+              {catalog.slice(0, 1).map((item, index) => (
+                <Card link="#">
+                  <Fragment slot="header">
+                    <Image src={`catalog/${index + 1}.png`} />
+                    <div class="card__header-price">От 99 999 ₽</div>
+                  </Fragment>
 
-              <H3>{item.name}</H3>
-              <P set:html={item.desc} />
-            </Card>
-          ))
-        }
-      </div>
-      <div class="swiper-slide">
-        {
-          catalog.slice(0, 2).map((item, index) => (
-            <Card link="#">
-              <Fragment slot="header">
-                <Image src={`catalog/${index + 1}.png`} />
-                <div class="card__header-price">От 99 999 ₽</div>
-              </Fragment>
+                  <H3>{item.name}</H3>
+                  <P set:html={item.desc} />
+                </Card>
+              ))}
+            </div>
+            <div class="swiper-slide">
+              {catalog.slice(0, 2).map((item, index) => (
+                <Card link="#">
+                  <Fragment slot="header">
+                    <Image src={`catalog/${index + 1}.png`} />
+                    <div class="card__header-price">От 99 999 ₽</div>
+                  </Fragment>
 
-              <H3>{item.name}</H3>
-              <P set:html={item.desc} />
-            </Card>
-          ))
-        }
-      </div>
-    </div>
-  </div>
+                  <H3>{item.name}</H3>
+                  <P set:html={item.desc} />
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </>
+    ) : (
+      <>
+        <H2>Каталог</H2>
+        <P>
+          Компания ProfStek предлагает широкий ассортимент перегородок и дверных
+          систем для офисных и торговых помещений. В нашем каталоге представлены
+          решения для зонирования пространства, обеспечивающие стиль, комфорт и
+          функциональность. Мы работаем с современными материалами, включая
+          стекло, алюминий, ЛДСП и композитные покрытия, что позволяет создавать
+          прочные и эстетичные конструкции. Вариативность дизайна,
+          звукоизоляционные и декоративные возможности, а также гибкость в
+          монтаже позволяют подобрать идеальное решение под любые требования.
+          Ознакомьтесь с нашим каталогом и найдите оптимальное решение для
+          вашего пространства!
+        </P>
+
+        <div class="catalog__sections">
+          <div class="catalog__section">
+            <div class="catalog__section-header">Перегородки</div>
+
+            <div class="catalog__section-list">
+              <Card link="#" class="size-large">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-title" />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+                <H3>Цельностеклянные перегородки CSP</H3>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+            </div>
+
+            <div class="catalog__section-list">
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+
+              <Card link="#" class="size-large">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-title">
+                    Алюминиевые перегородки Modern
+                  </div>
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+            </div>
+
+            <div class="catalog__section-list">
+              <Card link="#" class="size-large">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-title">
+                    Алюминиевые перегородки Modern
+                  </div>
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+            </div>
+
+            <div class="catalog__section-list">
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+
+              <Card link="#" class="size-large">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-title">
+                    Алюминиевые перегородки Modern
+                  </div>
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+            </div>
+
+            <div class="catalog__section-list">
+              <Card link="#" class="size-large">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-title">
+                    Алюминиевые перегородки Modern
+                  </div>
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+            </div>
+
+            <div class="catalog__section-list">
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+
+              <Card link="#" class="size-large">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-title">
+                    Алюминиевые перегородки Modern
+                  </div>
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+                <H3>CSP офисные прозрачные перегородки</H3>
+              </Card>
+            </div>
+          </div>
+
+          <div class="catalog__section">
+            <div class="catalog__section-header">Двери</div>
+
+            <div class="catalog__section-products">
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-title">Стеклянные двери</div>
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-title">Стеклянные двери</div>
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-title">Стеклянные двери</div>
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+              </Card>
+            </div>
+          </div>
+
+          <div class="catalog__section">
+            <div class="catalog__section-header">Жалюзи</div>
+
+            <div class="catalog__section-products">
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-title">Алюминиевые</div>
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-title">Антивандальные</div>
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+              </Card>
+            </div>
+          </div>
+
+          <div class="catalog__section">
+            <div class="catalog__section-header">Жалюзи</div>
+
+            <div class="catalog__section-products">
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-title">Modern</div>
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-title">CSP</div>
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-title">Loft</div>
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+              </Card>
+            </div>
+          </div>
+
+          <div class="catalog__section">
+            <div class="catalog__section-header">Потолочные системы</div>
+
+            <div class="catalog__section-products">
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-title">Армстронг</div>
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+              </Card>
+
+              <Card link="#">
+                <Fragment slot="header">
+                  <Image src={`partitions/1.png`} />
+                  <div class="card__header-title">Кубота</div>
+                  <div class="card__header-price">От 99 999 ₽</div>
+                </Fragment>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </>
+    )
+  }
 </Section>
 
 <style lang="scss" is:global>
@@ -220,6 +623,219 @@ import { catalog } from "@/store";
           }
         }
       }
+    }
+
+    &__sections {
+      margin-top: rem(20);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(100);
+
+      @include media("3xl") {
+        gap: rem(80);
+      }
+      @include media("xl") {
+        gap: rem(60);
+      }
+      @include media("sm") {
+        gap: rem(30);
+      }
+    }
+
+    &__section {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(100);
+
+      @include media("3xl") {
+        gap: rem(80);
+      }
+      @include media("xl") {
+        gap: rem(60);
+      }
+      @include media("sm") {
+        gap: rem(30);
+      }
+
+      &-header {
+        position: relative;
+        padding: rem(50) 0;
+        width: 100%;
+        color: #fff;
+        font-size: rem(44);
+        font-weight: 700;
+
+        @include media("3xl") {
+          padding: rem(30) 0;
+          font-size: rem(36);
+        }
+        @include media("sm") {
+          font-size: rem(32);
+        }
+        @include media("xs") {
+          padding: rem(20) 0;
+          font-size: rem(24);
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 50%;
+          z-index: -1;
+          transform: translateX(-50%);
+          width: 100vw;
+          height: 100%;
+          background: url("/assets/img/catalog-header-bg.png") center/cover
+            repeat-x;
+        }
+      }
+
+      &-list {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: rem(20);
+
+        @include media("xl") {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        @include media("lg") {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @include media("sm") {
+          grid-template-columns: 1fr;
+          gap: rem(10);
+        }
+      }
+
+      &-products {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: rem(20);
+
+        @include media("lg") {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @include media("sm") {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .card {
+        &.size-large {
+          grid-column-start: span 2;
+          grid-row-start: span 2;
+
+          .card__header-title {
+            font-size: rem(26);
+          }
+
+          .text-h3 {
+            display: none;
+          }
+
+          @include media("xl") {
+            .card__header-title {
+              bottom: rem(30);
+            }
+          }
+          @include media("sm") {
+            grid-column-start: span 1;
+            grid-row-start: span 1;
+
+            .card__header-title {
+              display: none;
+            }
+
+            .text-h3 {
+              display: block;
+            }
+          }
+        }
+
+        &__header {
+          flex-grow: 1;
+          border-radius: rem(25);
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: inherit;
+            transition: var(--transition-ease);
+          }
+
+          &-title {
+            position: absolute;
+            bottom: rem(35);
+            left: rem(15);
+            transform: translateY(-100%);
+            color: #fff;
+            font-size: rem(24);
+            font-weight: 700;
+            border-radius: 9999px;
+
+            @include media("xl") {
+              font-size: rem(16);
+            }
+          }
+
+          &-price {
+            position: absolute;
+            bottom: rem(15);
+            left: rem(15);
+            padding: rem(5) rem(20);
+            color: #fff;
+            font-size: rem(20);
+            font-weight: 700;
+            background: var(--primary);
+            border-radius: 9999px;
+
+            @include media("xl") {
+              padding: rem(5) rem(20);
+              font-size: rem(16);
+            }
+          }
+        }
+
+        &:hover {
+          .card__header img {
+            transform: scale(1.075);
+          }
+        }
+
+        &__content {
+          .text-h3 {
+            margin-top: rem(15);
+            font-size: rem(16);
+
+            @include media("sm") {
+              margin-top: rem(10);
+              margin-bottom: rem(5);
+              font-size: rem(18);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .catalog.is-main {
+    padding-top: rem(50) !important;
+
+    @include media("sm") {
+      padding-top: rem(35) !important;
+    }
+
+    .text-p {
+      max-width: rem(1005);
     }
   }
 </style>

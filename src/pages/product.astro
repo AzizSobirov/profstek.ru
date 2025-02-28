@@ -1,0 +1,222 @@
+---
+import App from "@/App.astro";
+import * as Blocks from "blocks";
+
+import { Section, H2, H3, P, BgImg, Image, Button } from "ui";
+---
+
+<App title="Цельностеклянные перегородки CSP">
+  <main>
+    <!-- Product -->
+    <Section name="product">
+      <div class="product__content">
+        <div class="product__img">
+          <Image src="product/1.png" data-fancybox="gallery" />
+        </div>
+
+        <div class="product__details">
+          <H2>Цельностеклянные перегородки CSP</H2>
+          <div class="product__details-price">Цена от 2490₽ за м2!</div>
+
+          <ul class="product__details-list">
+            <li>Выезд на замер вашего объекта 0₽</li>
+            <li>Консультация 0₽</li>
+            <li>Демонтаж старых перегородок 0₽</li>
+            <li>Доставка готовых конструкций 0₽</li>
+            <li>У нас собственное производство – всё в наличии</li>
+            <li>
+              Стоимость услуг «под ключ» одна из самых низких в Москве и
+              Санкт-Петербурге
+            </li>
+            <li>Гарантия 3 года</li>
+          </ul>
+
+          <Button variant="secondary" data-modal="callback"
+            >Заказать расчет <svg
+              width="37"
+              height="9"
+              viewBox="0 0 37 9"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M36.8536 4.85355C37.0488 4.65829 37.0488 4.34171 36.8536 4.14645L33.6716 0.964466C33.4763 0.769204 33.1597 0.769204 32.9645 0.964466C32.7692 1.15973 32.7692 1.47631 32.9645 1.67157L35.7929 4.5L32.9645 7.32843C32.7692 7.52369 32.7692 7.84027 32.9645 8.03553C33.1597 8.2308 33.4763 8.2308 33.6716 8.03553L36.8536 4.85355ZM0 5H36.5V4H0V5Z"
+                fill="white"></path>
+            </svg></Button
+          >
+        </div>
+      </div>
+    </Section>
+    <Blocks.Price
+      title="Цены на товар"
+      prices={[
+        {
+          name: "Название услуги",
+          price: "от 1200 р",
+        },
+        {
+          name: "Название услуги",
+          price: "от 1200 р",
+        },
+        {
+          name: "Название услуги",
+          price: "от 1200 р",
+        },
+        {
+          name: "Название услуги",
+          price: "от 1200 р",
+        },
+        {
+          name: "Лиственница",
+          price: "от 1200 р",
+        },
+      ]}
+    />
+    <Blocks.Partitions />
+    <Blocks.Features
+      title="Особенности цельностеклянных перегородок CSP"
+      img="features/1.png"
+    >
+      В данном типе перегородок в вертикальной плоскости не используются
+      элементы каркаса, только по краям всей конструкции. В следствие чего из
+      нескольких листов стекла образуется как бы единое целое полотно. Именно
+      поэтому данный вид перегородок называется – цельностеклянные. Крепление
+      стеклянных секций к полу, потолку и стенам осуществляется в основном с
+      помощью зажимного профиля, реже с помощью П-образного профиля, а также с
+      помощью точечных элементов (коннекторное соединение).
+      <br /><br />
+      Варианты заполнения перегородок CSP:
+      <ul>
+        <li>
+          стекло закалённое (8, 10, 12 мм) – применяется в большинстве случаев
+        </li>
+        <li>триплекс (многослойное стекло) – применяется для спец. задач</li>
+        <li>
+          моллированное стекло (гнутое стекло) – применяется для спец. задач
+        </li>
+      </ul>
+      <br />
+      Варианты исполнения перегородок CSP:
+      <ul>
+        <li>стекло можно затонировать полностью или частично</li>
+        <li>
+          за счёт плёнки можно нанести полосы, узоры, рисунки, логотип компании
+          и т.п.
+        </li>
+        <li>
+          любые варианты плёнки (матовая, цветная и пр.) под конкретную задачу
+        </li>
+        <li>
+          цвет профиля – по таблице RAL (по умолчанию естественный металлический
+          цвет)
+        </li>
+      </ul>
+    </Blocks.Features>
+    <Blocks.Advantages />
+    <Blocks.Application />
+    <Blocks.Steps />
+    <Blocks.Projects title="Реализованные проекты" />
+    <Blocks.Reviews />
+    <Blocks.Faq />
+    <Blocks.Seo />
+  </main>
+</App>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .product {
+    padding-top: rem(80) !important;
+
+    @include media("sm") {
+      padding-top: rem(35) !important;
+    }
+
+    &__content {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: rem(50);
+
+      @include media("xl") {
+        flex-direction: column;
+        gap: rem(40);
+      }
+      @include media("sm") {
+        gap: rem(20);
+      }
+    }
+
+    &__img {
+      min-width: rem(754);
+      width: rem(754);
+      height: rem(580);
+      border-radius: rem(20);
+
+      @include media("3xl") {
+        min-width: rem(680);
+        width: rem(680);
+        height: rem(540);
+      }
+      @include media("2xl") {
+        min-width: rem(580);
+        width: rem(580);
+      }
+      @include media("xl") {
+        min-width: auto;
+        width: 100%;
+        height: auto;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: inherit;
+
+        @include media("xl") {
+          max-height: rem(500);
+        }
+      }
+    }
+
+    &__details {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(20);
+
+      &-price {
+        font-size: rem(28);
+        font-weight: 700;
+
+        @include media("sm") {
+          font-size: rem(20);
+        }
+      }
+
+      &-list {
+        margin: rem(20) 0;
+        padding-left: rem(24);
+        list-style: disc;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: rem(25) rem(16);
+
+        @include media("sm") {
+          margin: rem(10) 0;
+          grid-template-columns: 1fr;
+          gap: rem(15);
+        }
+
+        li::marker {
+          color: var(--primary);
+          font-size: rem(20);
+        }
+      }
+    }
+  }
+</style>

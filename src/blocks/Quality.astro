@@ -1,0 +1,141 @@
+---
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+---
+
+<!-- Quality -->
+<Section name="quality">
+  <H2>Мы используем качественные, сертифицированные материалы</H2>
+  <div class="quality__list">
+    <div class="quality__item">
+      <div class="quality__item-header">
+        <Image src="quality/1.png" />
+        <H3>Стекло</H3>
+      </div>
+      <P>
+        Используем более 10 видов стекла, один из них - многослойное стекло
+        триплекс 4-16мм. Между слоями панели находятся пленки, поэтому в случае
+        повреждения осколки не осыпаются.
+      </P>
+    </div>
+    <div class="quality__item">
+      <div class="quality__item-header">
+        <Image src="quality/2.png" />
+        <H3>Алюминий</H3>
+      </div>
+      <P>
+        Отливаем по нашим матрицам, используя итальянские технологии. Отличается
+        высокой прочностью, сечение 1.8 мм. Красим в любой цвет, в том числе под
+        дерево и камень
+      </P>
+    </div>
+    <div class="quality__item">
+      <P>
+        Так же мы используем лдсп, мдф, массив, сэндвич-панель, оргстекло,
+        сотовый и монолитный поликарбонат, hpl пластик, сталь, гипсовинил,
+        нержавеющую сталь. По запросу наши менеджеры расскажут о всех
+        преимуществах используемых материалов
+      </P>
+      <Button variant="secondary" data-modal="callback">
+        Заказать расчет
+        <svg
+          width="37"
+          height="9"
+          viewBox="0 0 37 9"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M36.8536 4.85355C37.0488 4.65829 37.0488 4.34171 36.8536 4.14645L33.6716 0.964466C33.4763 0.769204 33.1597 0.769204 32.9645 0.964466C32.7692 1.15973 32.7692 1.47631 32.9645 1.67157L35.7929 4.5L32.9645 7.32843C32.7692 7.52369 32.7692 7.84027 32.9645 8.03553C33.1597 8.2308 33.4763 8.2308 33.6716 8.03553L36.8536 4.85355ZM0 5H36.5V4H0V5Z"
+            fill="white"></path>
+        </svg>
+      </Button>
+    </div>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .quality {
+    position: relative;
+
+    &__list {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      justify-content: flex-start;
+      gap: rem(20);
+
+      @include media("sm") {
+        gap: rem(15);
+      }
+    }
+
+    &__item {
+      padding: rem(25);
+      width: 100%;
+      border: rem(1) solid var(--primary);
+      border-radius: rem(20);
+      flex: 1 0 rem(280);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(20);
+
+      @include media("sm") {
+        padding: rem(18);
+      }
+
+      &-header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: rem(30);
+
+        @include media("sm") {
+          gap: rem(20);
+        }
+
+        img {
+          min-width: rem(130);
+          width: rem(130);
+          height: rem(130);
+          border-radius: 50%;
+          object-fit: cover;
+
+          @include media("3xl") {
+            min-width: rem(120);
+            width: rem(120);
+            height: rem(120);
+          }
+          @include media("sm") {
+            min-width: rem(80);
+            width: rem(80);
+            height: rem(80);
+          }
+        }
+
+        .text-h3 {
+          font-size: rem(34);
+
+          @include media("3xl") {
+            font-size: rem(28);
+          }
+          @include media("sm") {
+            font-size: rem(24);
+          }
+        }
+      }
+
+      .btn {
+        margin-top: rem(20);
+
+        @include media("sm") {
+          margin-top: rem(10);
+        }
+      }
+    }
+  }
+</style>

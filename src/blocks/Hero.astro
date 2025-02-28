@@ -1,54 +1,67 @@
 ---
 import { Section, P, BgImg, Image, Icon, Button } from "ui";
+
+interface Props {
+  img?: string;
+  isMain?: boolean;
+}
+
+const { img = "hero/1.png", isMain = false } = Astro.props;
 ---
 
 <!-- Hero -->
 <Section name="hero">
-  <BgImg src="hero/1.png" attachment="fixed" />
+  <BgImg src={img} attachment="fixed" />
 
-  <div class="hero__content">
-    <div class="hero__content-title">
-      Стеклянные перегородки для офисных и торговых помещений
-    </div>
-    <div class="hero__content-price">Цена от 2490₽ за м2!</div>
-    <P>
-      Современные решения компании ProfStek в области зонирования помещений
-      включают стильные и функциональные офисные и торговые перегородки. Они
-      обеспечивают комфортное разграничение пространства, сочетая эстетику и
-      практичность.
-    </P>
-    <form class="hero__form">
-      <div class="hero__form-title">Закажите бесплатный расчет</div>
-      <div class="hero__form-group">
-        <input type="text" name="name" placeholder="Ваше имя *" required />
-        <input
-          type="text"
-          name="phone"
-          placeholder="Ваш номер телефона *"
-          required
-        />
-        <button type="submit" class="btn">
-          Заказать расчет
-          <svg
-            width="38"
-            height="9"
-            viewBox="0 0 38 9"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M37.3536 4.85355C37.5488 4.65829 37.5488 4.34171 37.3536 4.14645L34.1716 0.964466C33.9763 0.769204 33.6597 0.769204 33.4645 0.964466C33.2692 1.15973 33.2692 1.47631 33.4645 1.67157L36.2929 4.5L33.4645 7.32843C33.2692 7.52369 33.2692 7.84027 33.4645 8.03553C33.6597 8.2308 33.9763 8.2308 34.1716 8.03553L37.3536 4.85355ZM0.5 5H37V4H0.5V5Z"
-              fill="white"></path>
-          </svg>
-        </button>
+  {
+    isMain ? (
+      <div class="hero__content">
+        <div class="hero__content-title">
+          Стеклянные перегородки для офисных и торговых помещений
+        </div>
+        <div class="hero__content-price">Цена от 2490₽ за м2!</div>
+        <P>
+          Современные решения компании ProfStek в области зонирования помещений
+          включают стильные и функциональные офисные и торговые перегородки. Они
+          обеспечивают комфортное разграничение пространства, сочетая эстетику и
+          практичность.
+        </P>
+        <form class="hero__form">
+          <div class="hero__form-title">Закажите бесплатный расчет</div>
+          <div class="hero__form-group">
+            <input type="text" name="name" placeholder="Ваше имя *" required />
+            <input
+              type="text"
+              name="phone"
+              placeholder="Ваш номер телефона *"
+              required
+            />
+            <button type="submit" class="btn">
+              Заказать расчет
+              <svg
+                width="38"
+                height="9"
+                viewBox="0 0 38 9"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M37.3536 4.85355C37.5488 4.65829 37.5488 4.34171 37.3536 4.14645L34.1716 0.964466C33.9763 0.769204 33.6597 0.769204 33.4645 0.964466C33.2692 1.15973 33.2692 1.47631 33.4645 1.67157L36.2929 4.5L33.4645 7.32843C33.2692 7.52369 33.2692 7.84027 33.4645 8.03553C33.6597 8.2308 33.9763 8.2308 34.1716 8.03553L37.3536 4.85355ZM0.5 5H37V4H0.5V5Z"
+                  fill="white"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="hero__form-privacy">
+            Отправляя форму вы соглашаетесь с{" "}
+            <a href="#">Политикой конфиденциальности</a>
+          </div>
+        </form>
       </div>
-      <div class="hero__form-privacy">
-        Отправляя форму вы соглашаетесь с <a href="#"
-          >Политикой конфиденциальности</a
-        >
-      </div>
-    </form>
-  </div>
+    ) : (
+      <slot />
+    )
+  }
 </Section>
 
 <style lang="scss" is:global>
@@ -219,6 +232,131 @@ import { Section, P, BgImg, Image, Icon, Button } from "ui";
           width: 100%;
           height: rem(56);
         }
+      }
+    }
+
+    &__product {
+      position: relative;
+      margin-top: rem(320);
+      padding: rem(36) rem(45) rem(45);
+      width: 100%;
+      backdrop-filter: blur(rem(50));
+      background: rgba(255, 255, 255, 0.6);
+      border: rem(1) solid #fff;
+      border-radius: rem(40);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(20);
+
+      @include media("3xl") {
+        margin-top: rem(180);
+      }
+      @include media("lg") {
+        margin-top: rem(80);
+      }
+      @include media("sm") {
+        margin-top: rem(30);
+        margin-bottom: rem(10);
+        padding: rem(20) rem(20) rem(35);
+        border-radius: rem(25);
+      }
+
+      .text-h2 {
+        max-width: rem(1000);
+      }
+
+      &-price {
+        font-size: rem(28);
+        font-weight: 700;
+
+        @include media("lg") {
+          font-size: rem(24);
+        }
+        @include media("sm") {
+          font-size: rem(20);
+        }
+      }
+
+      &-list {
+        width: 100%;
+        max-width: rem(1190);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start;
+        gap: rem(20);
+
+        @include media("sm") {
+          gap: rem(10);
+        }
+
+        li {
+          position: relative;
+
+          &::before {
+            content: "";
+            margin-bottom: rem(2);
+            margin-right: rem(8);
+            display: inline-block;
+            width: rem(6);
+            height: rem(6);
+            background: var(--primary);
+            border-radius: 50%;
+          }
+        }
+      }
+
+      .btn {
+        position: absolute;
+        right: rem(45);
+
+        @include media("1681px", min-width) {
+          top: 50%;
+          transform: translate(0, -100%);
+        }
+        @include media("xl") {
+          position: static;
+          margin-top: rem(10);
+          transform: none;
+        }
+      }
+    }
+
+    &__text {
+      position: relative;
+      margin: rem(100) 0;
+      padding: rem(70) rem(50);
+      width: 100%;
+      max-width: rem(1175);
+      backdrop-filter: blur(rem(50));
+      background: rgba(255, 255, 255, 0.6);
+      border: rem(1) solid #fff;
+      border-radius: rem(40);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(40);
+
+      @include media("3xl") {
+        margin: rem(40) 0;
+      }
+      @include media("lg") {
+        padding: rem(50) rem(30);
+      }
+      @include media("sm") {
+        margin: rem(20) 0;
+        padding: rem(20) rem(20) rem(35);
+        border-radius: rem(25);
+        gap: rem(20);
+
+        .btn {
+          margin-top: rem(10);
+        }
+      }
+
+      .text-p {
+        max-width: rem(1005);
       }
     }
   }

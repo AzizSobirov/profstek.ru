@@ -1,0 +1,63 @@
+---
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+---
+
+<!-- Colors -->
+<Section name="colors">
+  <H2>Стандартные цвета RAL</H2>
+
+  <div class="colors__list">
+    <div class="colors__item" style="background-color: #A1A1A0;">
+      <p>RAL 9006</p>
+      <p>Бело-алюминиевый</p>
+    </div>
+    <div class="colors__item" style="background-color: #0E0E10;">
+      <p>RAL 9005</p>
+      <p>Чёрный янтарь</p>
+    </div>
+    <div class="colors__item" style="background-color: #2F3234;">
+      <p>RAL 7021</p>
+      <p>Чёрно-серый</p>
+    </div>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .colors {
+    position: relative;
+
+    &__list {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      justify-content: flex-start;
+      gap: rem(20);
+
+      @include media("sm") {
+        gap: rem(15);
+      }
+    }
+
+    &__item {
+      padding: rem(25) rem(20);
+      min-height: rem(165);
+      color: #fff;
+      border-radius: rem(20);
+      overflow: hidden;
+      flex: 1 0 rem(280);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      gap: rem(10);
+
+      @include media("xs") {
+        min-height: rem(150);
+        flex-basis: 100%;
+      }
+    }
+  }
+</style>

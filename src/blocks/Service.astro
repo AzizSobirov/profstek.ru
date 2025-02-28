@@ -5,9 +5,15 @@ interface Props {
   title: string;
   desc: string;
   img: string;
+  variant?: "primary" | "secondary";
 }
 
-const { title = "Реализованные проекты", desc, img } = Astro.props;
+const {
+  title = "Реализованные проекты",
+  desc,
+  img,
+  variant = "primary",
+} = Astro.props;
 ---
 
 <!-- Service -->
@@ -32,7 +38,10 @@ const { title = "Реализованные проекты", desc, img } = Astro
       >
     </div>
 
-    <div class="service__img">
+    <div
+      class="service__img"
+      class:list={{ secondary: variant === "secondary" }}
+    >
       <Image src={img} />
     </div>
   </div>
@@ -94,6 +103,7 @@ const { title = "Реализованные проекты", desc, img } = Astro
       position: relative;
       min-width: rem(610);
       width: rem(610);
+      min-height: rem(700);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -101,6 +111,7 @@ const { title = "Реализованные проекты", desc, img } = Astro
       @include media("3xl") {
         min-width: rem(520);
         width: rem(520);
+        min-height: rem(600);
       }
       @include media("xl") {
         min-width: rem(420);
@@ -110,6 +121,10 @@ const { title = "Реализованные проекты", desc, img } = Astro
         padding: 0 rem(20);
         min-width: 100%;
         width: 100%;
+        min-height: rem(500);
+      }
+      @include media("sm") {
+        min-height: auto;
       }
 
       &::before {
@@ -126,6 +141,9 @@ const { title = "Реализованные проекты", desc, img } = Astro
         @include media("lg") {
           transform: translate(-40%, -10%) scale(0.8);
         }
+        @include media("sm") {
+          transform: translate(-40%, -30%) scale(0.5);
+        }
       }
 
       img {
@@ -136,6 +154,47 @@ const { title = "Реализованные проекты", desc, img } = Astro
 
         @include media("lg") {
           max-height: rem(500);
+        }
+      }
+
+      &.secondary {
+        min-width: rem(780);
+        width: rem(780);
+        &::before {
+          top: 50%;
+          left: 50%;
+          transform: translate(125%, -150%);
+        }
+
+        @include media("3xl") {
+          min-width: rem(620);
+          width: rem(620);
+
+          &::before {
+            transform: translate(75%, -120%);
+          }
+        }
+        @include media("xl") {
+          min-width: rem(420);
+          width: rem(420);
+
+          &::before {
+            transform: translate(35%, -100%) scale(0.8);
+          }
+        }
+        @include media("lg") {
+          padding: 0 rem(10);
+          min-width: 100%;
+          width: 100%;
+
+          &::before {
+            transform: translate(50%, -125%) scale(0.8);
+          }
+        }
+        @include media("sm") {
+          &::before {
+            transform: translate(0%, -85%) scale(0.5);
+          }
         }
       }
     }

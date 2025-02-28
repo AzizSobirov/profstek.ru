@@ -48,6 +48,7 @@
     }
     @include media("lg") {
       padding: rem(10) 0;
+      background-color: transparent;
     }
     @include media("xs") {
       .btn {

@@ -1,0 +1,83 @@
+---
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+
+interface Props {
+  title: string;
+  img: string;
+}
+
+const { title, img } = Astro.props;
+---
+
+<!-- Features -->
+<Section name="features">
+  <H2>{title}</H2>
+
+  <div class="features__content">
+    <div class="features__text">
+      <slot />
+    </div>
+    <div class="features__img">
+      <Image src={img} />
+    </div>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .features {
+    position: relative;
+
+    &__content {
+      position: relative;
+      padding: rem(50) 0;
+
+      @include media("xl") {
+        padding: 0;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: rem(30);
+      }
+    }
+
+    &__text {
+      width: 100%;
+      max-width: rem(750);
+      font-weight: 300;
+
+      @include media("xl") {
+        max-width: 100%;
+      }
+
+      ul {
+        padding-left: rem(30);
+        list-style: disc;
+      }
+    }
+
+    &__img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(40%, -50%);
+      width: rem(1024);
+      height: rem(472);
+
+      @include media("xl") {
+        position: static;
+        transform: unset;
+        width: 100%;
+        height: auto;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: rem(20);
+      }
+    }
+  }
+</style>
